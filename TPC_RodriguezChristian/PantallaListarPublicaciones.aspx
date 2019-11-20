@@ -13,16 +13,20 @@
 
       <asp:Repeater runat="server" ID="rptOutter"  >
             <ItemTemplate>
-                
-                <p><%#Eval("titulo")%> </p>
-                <p><%#Eval("descripcion")%> </p>
-           
+                <div class="card">
+                    <img src="<%#Eval("urlImagen") %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                <h5 class="card-title"><%#Eval("titulo")%> </h5>
+                <p class="card-text"><%#Eval("descripcion")%> </p>
+           </div>
                    
-                    <a class="btn btn-primary" href="PublicacionDetail.aspx?id=<%#Eval("Id")%>">Detalles</a>
+                    <a class="btn btn-primary" href="PublicacionDetalles.aspx?id=<%#Eval("Id")%>">Detalles</a>
+                    
+                    </div>
                 
             </ItemTemplate>
         </asp:Repeater>
-
+            
             </div>
             </div>
 

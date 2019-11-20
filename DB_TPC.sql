@@ -4,7 +4,7 @@ use DB_TPC
 go
 create table Usuarios
 (
-id bigint primary key identity(1,1),
+id int primary key identity(1,1),
 nombreDeUsuario varchar(50) not null,
 clave varchar(50) not null,
 dni varchar(50) not null,
@@ -18,7 +18,7 @@ go
 create table Administradores
 (
 id bigint primary key identity(1,1),
-idUsuario bigint foreign key references Usuarios(id),
+idUsuario int foreign key references Usuarios(id),
 estado bit not null
 )
 go
@@ -51,7 +51,7 @@ precio money not null,
 idCategoria int foreign key references Categorias(id),
 idMarca int foreign key references Marcas(id),
 idProducto bigint foreign key references Productos(id),
-idUsuario bigint foreign key references Usuarios(id),
+idUsuario int foreign key references Usuarios(id),
 estado bit not null,
 )
 go
@@ -67,12 +67,13 @@ insert into Categorias(nombre,estado) Values ('Notebook',1)
 go
 insert into Categorias(nombre,estado) Values ('Desktop',1)
 go
-insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Noteebook','Hola Papi','Todavia No TEngo',12,12,1,1,1)
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Noteebook','Cara','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',12,10000,1,1,1)
 go
-insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Deskotip','Baratita','Todavia No TEngo',112,122,2,1,1)
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Deskotip','Baratita','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',112,500,2,1,1)
 
 select Count(nombreDeUsuario) from Usuarios where nombreDeUsuario = 'chrispa'
 select clave from usuarios where nombreDeUsuario = 'chrispa'
+select id from usuarios where nombreDeUsuario = 'chrispa' and clave = '33286489xd'
 use master
 go
 drop database DB_TPC

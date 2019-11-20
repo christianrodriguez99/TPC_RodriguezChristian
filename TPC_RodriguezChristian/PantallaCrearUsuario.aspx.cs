@@ -89,6 +89,7 @@ namespace TPC_RodriguezChristian
                 if (ok == false)
                 {
                     UsuarioNegocio.agregar(usuario);
+                    Response.Redirect("Login.aspx");
                 }
                 else
                 {

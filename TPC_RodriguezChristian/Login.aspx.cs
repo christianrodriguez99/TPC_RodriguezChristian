@@ -25,13 +25,15 @@ namespace TPC_RodriguezChristian
         }
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            
-           
+
+            int id;
 
             bool ok = usuarioNegocio.verificarlogin(txtNombreDeUsuario.Text,txtClave.Text);
                 if (ok == true)
                 {
-                    usuarioNegocio.logearUsuario(usuario);
+                   
+                id = usuarioNegocio.obteneridUsuario(txtNombreDeUsuario.Text,txtClave.Text);
+                usuarioNegocio.logearUsuario(id);
                 Response.Redirect("SegundaPantalla.aspx");
                 }
                 else

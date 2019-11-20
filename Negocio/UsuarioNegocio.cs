@@ -72,13 +72,9 @@ namespace Negocio
                 {
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
+             
 
-
-
+                return false;
 
             }
 
@@ -89,19 +85,52 @@ namespace Negocio
 
         }
 
+        public int obteneridUsuario(string nombreUsuario , string clave)
+        {
+            
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                int resultado;
 
-        public void logearUsuario(Usuario usuario)
+                datos.setearQuery("select id from Usuarios where nombreDeUsuario = @nombreDeUsuario and clave = @clave");
+                datos.agregarParametro("@nombreDeUsuario", nombreUsuario);
+                datos.agregarParametro("@clave", clave);
+                datos.ejecutarLector();
+                datos.lector.Read();
+                resultado = datos.lector.GetInt32(0);
+                
+                                  
+                
+                return resultado;
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+
+
+
+        }
+        public void logearUsuario(int id)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                
                 datos.setearQuery("Update Usuarios set estado=@estado Where id=@Id");
                 datos.agregarParametro("@estado", true);
-                datos.agregarParametro("@Id", usuario.id);
+                datos.agregarParametro("@Id", id);
 
                 datos.ejecutarAccion();
 
-
+               
             }
             catch (Exception ex)
             {
