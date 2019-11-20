@@ -85,6 +85,7 @@ namespace Negocio
                     aux.stock = datos.lector.GetInt32(4);
                     aux.precio = datos.lector.GetDecimal(5);
                     aux.estado = datos.lector.GetBoolean(10);
+                    
                   
                     lista.Add(aux);
                 }

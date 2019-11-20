@@ -67,9 +67,9 @@ insert into Categorias(nombre,estado) Values ('Notebook',1)
 go
 insert into Categorias(nombre,estado) Values ('Desktop',1)
 go
-insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Noteebook','Cara','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',12,10000,1,1,1)
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Noteebook','Carasa','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',12,10000,1,1,1)
 go
-insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Deskotip','Baratita','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',112,500,2,1,1)
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Deskotip','Baratita','https://http2.mlstatic.com/pc-de-escritorio-dell-i5-4gb-hd-1tb-win10-pro-vostro-oferta-para-uso-hogar-y-empresa-garantia-oficial-D_NQ_NP_895983-MLA31077531976_062019-O.webp',112,500,2,1,1)
 
 select Count(nombreDeUsuario) from Usuarios where nombreDeUsuario = 'chrispa'
 select clave from usuarios where nombreDeUsuario = 'chrispa'
