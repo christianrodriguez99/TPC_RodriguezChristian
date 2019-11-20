@@ -85,7 +85,7 @@ namespace Negocio
 
         }
 
-        public int obteneridUsuario(string nombreUsuario , string clave)
+        public int obteneridUsuarioPrimeraVez(string nombreUsuario , string clave)
         {
             
             AccesoDatos datos = new AccesoDatos();
@@ -104,6 +104,45 @@ namespace Negocio
                 
                 return resultado;
                 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+
+
+
+        }
+
+        public int obteneridUsuario()
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                int resultado;
+
+                datos.setearQuery("select id from Usuarios where estado=1");
+                datos.ejecutarLector();
+                datos.lector.Read();
+                if (datos.lector.HasRows)
+                {
+                    resultado = datos.lector.GetInt32(0);
+                }
+                else
+                {
+                    return -1;
+                }
+
+
+
+                return resultado;
+
             }
             catch (Exception ex)
             {
@@ -141,8 +180,12 @@ namespace Negocio
 
         }
 
-       
       
+
+
+
+
+
         public void agregar(Usuario usuario)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -186,7 +229,24 @@ namespace Negocio
                 }
             }
 
-            public List<Usuario> listar()
+        public void cerrarSesion(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearQuery("Update Usuarios set estado=0 Where id=@Id");
+                datos.agregarParametro("@Id", id);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Usuario> listar()
             {
                 List<Usuario> lista = new List<Usuario>();
                 Usuario aux;

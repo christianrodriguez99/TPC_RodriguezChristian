@@ -19,6 +19,7 @@ namespace TPC_RodriguezChristian
         MarcaNegocio marcaNegocio = new MarcaNegocio();
         CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
         PublicacionNegocio publicacionNegocio = new PublicacionNegocio();
+        UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -65,9 +66,14 @@ namespace TPC_RodriguezChristian
         protected void btnCrear_Click(object sender, EventArgs e)
         {
             int valido = 1;
+            Publicacion aux;
             publicacion.titulo = txtTitulo.Text;
-            publicacion.idmarca = Convert.ToInt32(cboMarcas.SelectedItem.Value);
-            publicacion.idcategoria = Convert.ToInt32(cboCategorias.SelectedItem.Value);
+            publicacion.marca = new Marca();
+            publicacion.marca.id = Convert.ToInt32(cboMarcas.SelectedItem.Value);
+            publicacion.categoria = new Categoria();
+            publicacion.categoria.id = Convert.ToInt32(cboCategorias.SelectedItem.Value);
+            publicacion.usuario = new Usuario();
+            publicacion.usuario.id = usuarioNegocio.obteneridUsuario();
             publicacion.descripcion = txtDescripcion.Text;
             publicacion.urlImagen = txtImagen.Text;
 

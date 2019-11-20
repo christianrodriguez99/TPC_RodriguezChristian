@@ -4,11 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Negocio;
+using Dominio;
 
 namespace TPC_RodriguezChristian
 {
     public partial class SegundaPantalla : System.Web.UI.Page
     {
+        public Usuario usuario = new Usuario();
+        AccesoDatos datos = new AccesoDatos();
+        UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -24,6 +30,11 @@ namespace TPC_RodriguezChristian
         }
         protected void btnPerfil_Click(object sender, EventArgs e)
         {
+        }
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            usuarioNegocio.cerrarSesion(usuarioNegocio.obteneridUsuario());
+            Response.Redirect("Login.aspx");
         }
 
     }

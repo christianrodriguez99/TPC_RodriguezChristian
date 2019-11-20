@@ -29,15 +29,16 @@ namespace Negocio
             try
             {
 
-                datos.setearQuery("insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values(@titulo,@descripcion,@urlImagen,@stock,@precio,@estado,@idMarca,@idCategoria)");
+                datos.setearQuery("insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario)values(@titulo,@descripcion,@urlImagen,@stock,@precio,@estado,@idMarca,@idCategoria,@idUsuario)");
                 datos.agregarParametro("@titulo", Publicacion.titulo);
                 datos.agregarParametro("@descripcion", Publicacion.descripcion);
                 datos.agregarParametro("@urlImagen", Publicacion.urlImagen);
                 datos.agregarParametro("@stock", Publicacion.stock);
                 datos.agregarParametro("@precio", Publicacion.precio);
                 datos.agregarParametro("@estado", Publicacion.estado);
-                datos.agregarParametro("@idmarca", Publicacion.idmarca);
-                datos.agregarParametro("@idcategoria", Publicacion.idcategoria);
+                datos.agregarParametro("@idmarca", Publicacion.marca.id);
+                datos.agregarParametro("@idcategoria", Publicacion.categoria.id);
+                datos.agregarParametro("@idusuario", Publicacion.usuario.id);
                 datos.ejecutarAccion();
 
             }

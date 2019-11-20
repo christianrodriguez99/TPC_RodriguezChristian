@@ -6,6 +6,6 @@
     <asp:Button ID="btnCargarPublicacion" runat="server" Text="Cargar nueva publicacion" OnClick="btnCargar_Click"  />
     <asp:Button ID="btnListar" runat="server" Text="Listar productos" OnClick="btnListar_Click" />
     <asp:Button ID="btnPerfil" runat="server" Text="Mi perfil" OnClick="btnPerfil_Click" />
-
+    <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
     </asp:Content>
 

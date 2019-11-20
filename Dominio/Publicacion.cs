@@ -17,7 +17,7 @@ namespace Dominio
         public Producto producto { get; set; }
         public bool estado { get; set; }
         public Usuario usuario { get; set; }
-        public int idcategoria { get; set; }
-        public int idmarca { get; set; }
+        public Categoria categoria { get; set; }
+        public Marca marca { get; set; }
     }
 }
