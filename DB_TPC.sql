@@ -11,7 +11,8 @@ dni varchar(50) not null,
 nombre varchar(50) not null,
 apellido varchar(50) not null,
 email varchar(50) not null,
-telefono varchar(50) not null
+telefono varchar(50) not null,
+estado bit not null 
 )
 go
 create table Administradores
@@ -28,7 +29,7 @@ estado bit not null
 )
 go
 create table Categorias(
-id bigint primary key identity(1,1),
+id int primary key identity(1,1),
 nombre varchar(50) not null,
 estado bit not null
 )
@@ -36,18 +37,19 @@ go
 create table Productos(
 id bigint primary key identity(1,1),
 nombre varchar(50) not null,
-idCategoria bigint foreign key references Categorias(id),
-idMarca bigint foreign key references Marcas(id),
+
 estado bit not null
 )
 go
-create table Publicacion(
-id bigint primary key identity(1,1),
+create table Publicaciones(
+id int primary key identity(1,1),
 titulo varchar(50) not null,
 descripcion varchar(50) not null,
 urlImagen varchar(100) not null,
-stock bigint not null,
+stock int not null,
 precio money not null,
+idCategoria int foreign key references Categorias(id),
+idMarca int foreign key references Marcas(id),
 idProducto bigint foreign key references Productos(id),
 idUsuario bigint foreign key references Usuarios(id),
 estado bit not null,
@@ -60,8 +62,17 @@ go
 insert into Marcas(nombre,estado) Values ('ASUS',1)
 go
 insert into Marcas(nombre,estado) Values ('ACER',1)
+go
+insert into Categorias(nombre,estado) Values ('Notebook',1)
+go
+insert into Categorias(nombre,estado) Values ('Desktop',1)
+go
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Noteebook','Hola Papi','Todavia No TEngo',12,12,1,1,1)
+go
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values('Deskotip','Baratita','Todavia No TEngo',112,122,2,1,1)
 
-select * from Marcas
+select Count(nombreDeUsuario) from Usuarios where nombreDeUsuario = 'chrispa'
+select clave from usuarios where nombreDeUsuario = 'chrispa'
 use master
 go
 drop database DB_TPC

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using System.Data.SqlClient;
 
 namespace Negocio
 {
@@ -23,27 +24,122 @@ namespace Negocio
                 }
             }
 
-            public void agregar(Usuario Usuario)
+            public bool verificar(Usuario usuario)
             {
                 AccesoDatos datos = new AccesoDatos();
-
+  
                 try
                 {
-
-                    datos.setearQuery("insert into Usuarios (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria)values(@titulo,@descripcion,@urlImagen,stock,@precio,@estado,@idMarca,@idCategoria)");
-                    datos.agregarParametro("@titulo", Usuario.nombreDeUsuario);
-
-                    datos.ejecutarAccion();
-
+               
+                datos.setearQuery("select Count(nombreDeUsuario) from Usuarios where nombreDeUsuario = @nombreDeUsuario");
+                datos.agregarParametro("@nombreDeUsuario", usuario.nombreDeUsuario);
+                datos.conexion.Open();
+                Int32 count = Convert.ToInt32(datos.comando.ExecuteScalar());
+                if (count > 0)
+                {
+                    return true;
                 }
+                else
+                {
+                    return false;
+                }
+
+
+
+
+            }
 
                 catch (Exception ex)
                 {
                     throw ex;
                 }
+            
             }
 
-            public void modificar(Usuario Usuario)
+        public bool verificarlogin(string nombreUsuario , string clave )
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.setearQuery("select clave from Usuarios where nombreDeUsuario = @nombreDeUsuario");
+                datos.agregarParametro("@nombreDeUsuario", nombreUsuario);
+                datos.agregarParametro("@clave", clave);
+                datos.conexion.Open();
+                string password = datos.comando.ExecuteScalar().ToString();
+                if (password == clave)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
+        public void logearUsuario(Usuario usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearQuery("Update Usuarios set estado=@estado Where id=@Id");
+                datos.agregarParametro("@estado", true);
+                datos.agregarParametro("@Id", usuario.id);
+
+                datos.ejecutarAccion();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+
+        }
+
+       
+      
+        public void agregar(Usuario usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {               
+                        datos.setearQuery("insert into Usuarios (nombreDeUsuario,clave,dni,nombre,apellido,email,telefono,estado)values(@nombreDeUsuario,@clave,@dni,@nombre,@apellido,@email,@telefono,@estado)");
+                        datos.agregarParametro("@nombreDeUsuario", usuario.nombreDeUsuario);
+                        datos.agregarParametro("clave", usuario.clave);
+                        datos.agregarParametro("@dni", usuario.dni);
+                        datos.agregarParametro("@nombre", usuario.nombre);
+                        datos.agregarParametro("@apellido", usuario.apellido);
+                        datos.agregarParametro("@email", usuario.email);
+                        datos.agregarParametro("@telefono", usuario.nroTelefono);
+                        datos.agregarParametro("@estado", false);
+                        datos.ejecutarAccion();
+                 
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void modificar(Usuario Usuario)
             {
                 AccesoDatos datos = new AccesoDatos();
                 try

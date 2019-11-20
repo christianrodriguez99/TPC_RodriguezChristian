@@ -6,11 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
-using System.Data.SqlClient;
 
 namespace TPC_RodriguezChristian
 {
-    public partial class PantallaCargarProducto : System.Web.UI.Page
+    public partial class PantallaCrearPublicacion : System.Web.UI.Page
     {
         public Publicacion publicacion = new Publicacion();
         public List<Marca> listaMarcas;
@@ -98,7 +97,7 @@ namespace TPC_RodriguezChristian
             //Stock
 
             int valor = -1;
-
+            
             if (int.TryParse(txtStock.Text, out valor))
             {
                 valor = 1;

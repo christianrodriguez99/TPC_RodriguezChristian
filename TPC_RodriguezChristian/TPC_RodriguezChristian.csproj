@@ -124,8 +124,9 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="PantallaCrearPublicacion.aspx" />
+    <Content Include="PantallaCrearUsuario.aspx" />
     <Content Include="PantallaError.aspx" />
-    <Content Include="PantallaListarProductos.aspx" />
+    <Content Include="PantallaListarPublicaciones.aspx" />
     <Content Include="PantallaPerfil.aspx" />
     <Content Include="PublicacionDetalles.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -181,6 +182,13 @@
     <Compile Include="PantallaCrearPublicacion.aspx.designer.cs">
       <DependentUpon>PantallaCrearPublicacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PantallaCrearUsuario.aspx.cs">
+      <DependentUpon>PantallaCrearUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaCrearUsuario.aspx.designer.cs">
+      <DependentUpon>PantallaCrearUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PantallaError.aspx.cs">
       <DependentUpon>PantallaError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,12 +196,12 @@
     <Compile Include="PantallaError.aspx.designer.cs">
       <DependentUpon>PantallaError.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PantallaListarProductos.aspx.cs">
-      <DependentUpon>PantallaListarProductos.aspx</DependentUpon>
+    <Compile Include="PantallaListarPublicaciones.aspx.cs">
+      <DependentUpon>PantallaListarPublicaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PantallaListarProductos.aspx.designer.cs">
-      <DependentUpon>PantallaListarProductos.aspx</DependentUpon>
+    <Compile Include="PantallaListarPublicaciones.aspx.designer.cs">
+      <DependentUpon>PantallaListarPublicaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="PantallaPerfil.aspx.cs">
       <DependentUpon>PantallaPerfil.aspx</DependentUpon>

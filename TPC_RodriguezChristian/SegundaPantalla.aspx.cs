@@ -13,10 +13,18 @@ namespace TPC_RodriguezChristian
         {
 
         }
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PantallaCargarProducto.aspx");
 
+        protected void btnCargar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PantallaCrearPublicacion");
         }
+        protected void btnListar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PantallaListarProductos");
+        }
+        protected void btnPerfil_Click(object sender, EventArgs e)
+        {
+        }
+
     }
 }

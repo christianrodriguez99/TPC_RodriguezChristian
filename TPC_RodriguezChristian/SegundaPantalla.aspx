@@ -3,9 +3,9 @@
 
 <asp:Content ID="head" ContentPlaceHolderID="cuerpo" runat="server">
 
-    <asp:Button ID="btnCargarPublicacion" runat="server" Text="Cargar nueva publicacion" onclick="btnCargar_Click" />
-    <asp:Button ID="btnPerfil" runat="server" Text="Listar productos" onclick="btnCargar_Click" />
-    <asp:Button ID="Button2" runat="server" Text="Mi perfil" onclick="btnCargar_Click" />
+    <asp:Button ID="btnCargarPublicacion" runat="server" Text="Cargar nueva publicacion" OnClick="btnCargar_Click"  />
+    <asp:Button ID="btnListar" runat="server" Text="Listar productos" OnClick="btnListar_Click" />
+    <asp:Button ID="btnPerfil" runat="server" Text="Mi perfil" OnClick="btnPerfil_Click" />
 
     </asp:Content>
 

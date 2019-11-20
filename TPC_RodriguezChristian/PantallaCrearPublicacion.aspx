@@ -1,11 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="PantallaCrearPublicacion.aspx.cs" Inherits="TPC_RodriguezChristian.PantallaCargarProducto" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="PantallaCrearPublicacion.aspx.cs" Inherits="TPC_RodriguezChristian.PantallaCrearPublicacion" %>
 
 
 <asp:Content ID="head" ContentPlaceHolderID="cuerpo" runat="server">
-      <div class="card-columns" style="margin-left: 10px; margin-right: 10px;">
-     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <script type ="text/javascript" src="js/bootsrap.min.js"></script>
-    <script type="text/javascript"src="js/jquery-3.1.0.min.js"></script>
+     
+      <link href="Content/bootstrap.css" rel="stylesheet" />
+
+    <div class="container-fluid">
+        <div class="jumbotron" style="border:1px solid #808080 ;box-shadow: 0px 2px 5px #000000;">
    
         <asp:Label ID="lblTitulo" runat="server" Text="Nombre de la publicacion"></asp:Label>
         <asp:TextBox ID="txtTitulo" runat="server"></asp:TextBox>
@@ -31,8 +32,9 @@
         <asp:Label ID="lblCategoria" runat="server" Text="Categoria"></asp:Label>
         <asp:DropDownList ID="cboCategorias" runat="server"></asp:DropDownList>
     </div>
+        </div>
 
-    <asp:Button ID="btnCrear" runat="server" Text="Crear publicacion" OnClick="btnCrear_Click" />
+    <asp:Button ID="btnCrear" runat="server" Text="Crear publicacion" OnClick="btnCrear_Click" CssClass="btn-default btn active center-block"/>
     
 
     </asp:Content>

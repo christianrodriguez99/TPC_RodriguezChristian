@@ -22,6 +22,15 @@ namespace TPC_RodriguezChristian {
         protected global::System.Web.UI.WebControls.Button btnCargarPublicacion;
         
         /// <summary>
+        /// btnListar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnListar;
+        
+        /// <summary>
         /// btnPerfil control.
         /// </summary>
         /// <remarks>
@@ -29,14 +38,5 @@ namespace TPC_RodriguezChristian {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPerfil;
-        
-        /// <summary>
-        /// Button2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }
