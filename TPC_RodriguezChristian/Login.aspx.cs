@@ -17,15 +17,7 @@ namespace TPC_RodriguezChristian
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                int logeado = usuarioNegocio.obteneridUsuario();
-
-                if (logeado != -1)
-                {
-                    Response.Redirect("SegundaPantalla.aspx");
-                }
-            }
+          
 
         }
         protected void btnCrear_Click(object sender, EventArgs e)
@@ -35,14 +27,13 @@ namespace TPC_RodriguezChristian
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
 
-            int id;
+          
 
             bool ok = usuarioNegocio.verificarlogin(txtNombreDeUsuario.Text,txtClave.Text);
                 if (ok == true)
                 {
-                   
-                id = usuarioNegocio.obteneridUsuarioPrimeraVez(txtNombreDeUsuario.Text,txtClave.Text);
-                usuarioNegocio.logearUsuario(id);
+
+                Session["Userid"] = txtNombreDeUsuario.Text;
                 Response.Redirect("SegundaPantalla.aspx");
                 }
                 else

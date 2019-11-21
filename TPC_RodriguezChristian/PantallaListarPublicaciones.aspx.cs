@@ -17,7 +17,7 @@ namespace TPC_RodriguezChristian
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+        
             rptOutter.DataSource = publicacionNegocio.listar();
             rptOutter.DataBind();
 

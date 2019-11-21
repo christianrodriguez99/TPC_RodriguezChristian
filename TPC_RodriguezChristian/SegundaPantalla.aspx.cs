@@ -17,6 +17,8 @@ namespace TPC_RodriguezChristian
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == "")
+                Response.Redirect("Login.aspx");
 
         }
 
@@ -26,14 +28,15 @@ namespace TPC_RodriguezChristian
         }
         protected void btnListar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("PantallaListarProductos");
+            Response.Redirect("PantallaListarPublicaciones");
         }
         protected void btnPerfil_Click(object sender, EventArgs e)
         {
+            Response.Redirect("PantallaPerfil");
         }
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            usuarioNegocio.cerrarSesion(usuarioNegocio.obteneridUsuario());
+            Session.RemoveAll();
             Response.Redirect("Login.aspx");
         }
 

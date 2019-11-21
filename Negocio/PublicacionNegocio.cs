@@ -49,6 +49,33 @@ namespace Negocio
             }
         }
 
+        public void agregarXUsuario(Publicacion Publicacion)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.setearQuery("insert into PublicacionesXUsuario (idUsuario,idPublicacion) values (@idUsuario,@idPublicacion)");
+                datos.agregarParametro("@titulo", Publicacion.titulo);
+                datos.agregarParametro("@descripcion", Publicacion.descripcion);
+                datos.agregarParametro("@urlImagen", Publicacion.urlImagen);
+                datos.agregarParametro("@stock", Publicacion.stock);
+                datos.agregarParametro("@precio", Publicacion.precio);
+                datos.agregarParametro("@estado", Publicacion.estado);
+                datos.agregarParametro("@idmarca", Publicacion.marca.id);
+                datos.agregarParametro("@idcategoria", Publicacion.categoria.id);
+                datos.agregarParametro("@idusuario", Publicacion.usuario.id);
+                datos.ejecutarAccion();
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void modificar(Publicacion Publicacion)
         {
             AccesoDatos datos = new AccesoDatos();

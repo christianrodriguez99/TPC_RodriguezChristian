@@ -29,6 +29,8 @@ namespace TPC_RodriguezChristian
             {
                 if (!IsPostBack)
                 {
+                    if(Session["Userid"] == null)
+                    Response.Redirect("Login.aspx");
 
                     listaMarcas = marcaNegocio.listar();
                     cboMarcas.DataSource = listaMarcas;
@@ -66,16 +68,17 @@ namespace TPC_RodriguezChristian
         protected void btnCrear_Click(object sender, EventArgs e)
         {
             int valido = 1;
-            Publicacion aux;
+            string nombreDeUsuario = Session["Userid"].ToString();
             publicacion.titulo = txtTitulo.Text;
             publicacion.marca = new Marca();
             publicacion.marca.id = Convert.ToInt32(cboMarcas.SelectedItem.Value);
             publicacion.categoria = new Categoria();
             publicacion.categoria.id = Convert.ToInt32(cboCategorias.SelectedItem.Value);
             publicacion.usuario = new Usuario();
-            publicacion.usuario.id = usuarioNegocio.obteneridUsuario();
+            publicacion.usuario.id = usuarioNegocio.obteneridPorSession(nombreDeUsuario);
             publicacion.descripcion = txtDescripcion.Text;
             publicacion.urlImagen = txtImagen.Text;
+            
 
 
             //Precio
@@ -139,7 +142,11 @@ namespace TPC_RodriguezChristian
             }
 
         }
-            
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SegundaPantalla.aspx");
+        }
+
 
         }
 

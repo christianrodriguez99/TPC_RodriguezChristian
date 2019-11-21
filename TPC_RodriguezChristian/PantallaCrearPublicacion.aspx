@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="PantallaCrearPublicacion.aspx.cs" Inherits="TPC_RodriguezChristian.PantallaCrearPublicacion" %>
 
 
-<asp:Content ID="head" ContentPlaceHolderID="cuerpo" runat="server">
+<asp:Content ID="Default" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
-      <link href="Content/bootstrap.css" rel="stylesheet" />
 
-    <div class="container-fluid">
+
+    <div class="container-fluid" style="margin-top:30px">
         <div class="jumbotron" style="border:1px solid #808080 ;box-shadow: 0px 2px 5px #000000;">
    
         <asp:Label ID="lblTitulo" runat="server" Text="Nombre de la publicacion"></asp:Label>
@@ -33,8 +33,11 @@
         <asp:DropDownList ID="cboCategorias" runat="server"></asp:DropDownList>
     </div>
         </div>
-
-    <asp:Button ID="btnCrear" runat="server" Text="Crear publicacion" OnClick="btnCrear_Click" CssClass="btn-default btn active center-block"/>
+    <div style="margin-left:30px">
+    <asp:Button ID="btnCrear" runat="server" Text="Crear publicacion" OnClick="btnCrear_Click" CssClass="btn btn-primary"/>
+    <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="btn btn-primary"/>
+      
+    </div>
     
 
     </asp:Content>

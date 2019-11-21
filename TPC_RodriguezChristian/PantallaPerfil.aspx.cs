@@ -13,5 +13,20 @@ namespace TPC_RodriguezChristian
         {
 
         }
+
+        protected void btnMisDatos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnMisCompras_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnMisVentas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

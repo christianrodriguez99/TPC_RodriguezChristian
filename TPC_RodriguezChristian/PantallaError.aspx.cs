@@ -22,7 +22,13 @@ namespace TPC_RodriguezChristian
                 Response.Redirect("PantallaCrearUsuario.aspx");
             }
             Response.Redirect(Request.UrlReferrer.ToString());
-            
+
+            if (Request.Url.AbsoluteUri == "https://localhost:44394/PantallaError?dni")
+            {
+                Response.Redirect("Login.aspx");
+            }
+            Response.Redirect(Request.UrlReferrer.ToString());
+
         }
     }
 }

@@ -66,12 +66,15 @@ namespace Negocio
                 datos.setearQuery("select clave from Usuarios where nombreDeUsuario = @nombreDeUsuario");
                 datos.agregarParametro("@nombreDeUsuario", nombreUsuario);
                 datos.agregarParametro("@clave", clave);
-                datos.conexion.Open();
-                string password = datos.comando.ExecuteScalar().ToString();
-                if (password == clave)
-                {
-                    return true;
-                }
+                datos.conexion.Open();               
+               string password = datos.comando.ExecuteScalar().ToString();
+                
+                    if (password == clave)
+                    {
+                        return true;
+                    }
+                
+                
              
 
                 return false;
@@ -85,25 +88,25 @@ namespace Negocio
 
         }
 
-        public int obteneridUsuarioPrimeraVez(string nombreUsuario , string clave)
+        public int obteneridPorSession(string nombreDeUsuario)
         {
-            
+           
+
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 int resultado;
 
-                datos.setearQuery("select id from Usuarios where nombreDeUsuario = @nombreDeUsuario and clave = @clave");
-                datos.agregarParametro("@nombreDeUsuario", nombreUsuario);
-                datos.agregarParametro("@clave", clave);
+                datos.setearQuery("select id from Usuarios where nombreDeUsuario = @nombreDeUsuario");
+                datos.agregarParametro("@nombreDeUsuario", nombreDeUsuario);
                 datos.ejecutarLector();
                 datos.lector.Read();
                 resultado = datos.lector.GetInt32(0);
-                
-                                  
-                
+
+
+
                 return resultado;
-                
+
             }
             catch (Exception ex)
             {
@@ -119,25 +122,20 @@ namespace Negocio
 
         }
 
-        public int obteneridUsuario()
+        public int obteneridVendedor(int idPublicacion)
         {
+            
 
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 int resultado;
 
-                datos.setearQuery("select id from Usuarios where estado=1");
+                datos.setearQuery("select idUsuario from Publicaciones where id = @id");
+                datos.agregarParametro("@id", idPublicacion);
                 datos.ejecutarLector();
                 datos.lector.Read();
-                if (datos.lector.HasRows)
-                {
-                    resultado = datos.lector.GetInt32(0);
-                }
-                else
-                {
-                    return -1;
-                }
+                resultado = datos.lector.GetInt32(0);
 
 
 
@@ -155,8 +153,10 @@ namespace Negocio
             }
 
 
-
+          
         }
+
+      
         public void logearUsuario(int id)
         {
             AccesoDatos datos = new AccesoDatos();

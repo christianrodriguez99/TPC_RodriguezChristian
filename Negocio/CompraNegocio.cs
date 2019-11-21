@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dominio
+namespace Negocio
 {
-    public class Administrador : Usuario
+    public class CompraNegocio
     {
-        public bool estado { get; set; }
     }
 }

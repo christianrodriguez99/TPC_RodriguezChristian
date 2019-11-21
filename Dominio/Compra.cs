@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Compra
+    public class Compra
     {
         public int id { get; set; }
         public int cantidad { get; set; }
         public DateTime fecha { get; set; }
-        public Producto producto { get; set; }
+        public Usuario vendedor { get; set; }
+        public Usuario comprador { get; set; }
+        public Publicacion publicacion { get; set; }
     }
 }
