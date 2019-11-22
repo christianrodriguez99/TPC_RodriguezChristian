@@ -132,10 +132,12 @@
     <Content Include="fonts\slick.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Login.aspx" />
+    <Content Include="PantallaComprasPendientes.aspx" />
     <Content Include="PantallaCrearPublicacion.aspx" />
     <Content Include="PantallaCrearUsuario.aspx" />
     <Content Include="PantallaError.aspx" />
     <Content Include="PantallaListarPublicaciones.aspx" />
+    <Content Include="PantallaMisProductos.aspx" />
     <Content Include="PantallaPerfil.aspx" />
     <Content Include="PublicacionDetalles.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -184,6 +186,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PantallaComprasPendientes.aspx.cs">
+      <DependentUpon>PantallaComprasPendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaComprasPendientes.aspx.designer.cs">
+      <DependentUpon>PantallaComprasPendientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PantallaCrearPublicacion.aspx.cs">
       <DependentUpon>PantallaCrearPublicacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -211,6 +220,13 @@
     </Compile>
     <Compile Include="PantallaListarPublicaciones.aspx.designer.cs">
       <DependentUpon>PantallaListarPublicaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaMisProductos.aspx.cs">
+      <DependentUpon>PantallaMisProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaMisProductos.aspx.designer.cs">
+      <DependentUpon>PantallaMisProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="PantallaPerfil.aspx.cs">
       <DependentUpon>PantallaPerfil.aspx</DependentUpon>

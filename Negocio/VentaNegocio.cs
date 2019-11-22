@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
-
+using Negocio;
 
 namespace Negocio
 {
@@ -17,12 +17,13 @@ namespace Negocio
             try
             {
 
-                datos.setearQuery("insert into Ventas (cantidad,idUsuarioVendedor,idUsuarioComprador,idPublicacion,fecha) values (@cantidad,@idUsuarioVendedor,@idUsuarioComprador,@idPublicacion,@fecha)");
-                datos.agregarParametro("@idUsuarioComprador", venta.comprador.id);
-                datos.agregarParametro("@idUsuarioVendedor", venta.vendedor.id);
+                datos.setearQuery("insert into Ventas (cantidad,idUsuarioVendedor,idUsuarioComprador,idPublicacion,fecha,precioTotal) values (@cantidad,@idUsuarioVendedor,@idUsuarioComprador,@idPublicacion,@fecha,@precioTotal)");
                 datos.agregarParametro("@cantidad", venta.cantidad);
-                datos.agregarParametro("@fecha", venta.fecha);
+                datos.agregarParametro("@idUsuarioComprador", venta.comprador.id);
+                datos.agregarParametro("@idUsuarioVendedor", venta.vendedor.id);           
                 datos.agregarParametro("@idPublicacion", venta.publicacion.id);
+                datos.agregarParametro("@fecha", venta.fecha);
+                datos.agregarParametro("@precioTotal",venta.precioTotal);
                 datos.ejecutarAccion();
 
             }

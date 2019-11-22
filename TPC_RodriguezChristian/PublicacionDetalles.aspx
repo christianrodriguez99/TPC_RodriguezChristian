@@ -18,16 +18,16 @@
 <asp:TextBox ID="txtCantidad" runat="server" value="1" ></asp:TextBox>
     <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" OnClick="btnSiguiente_Click" CssClass="btn btn-primary" />
 
-    <br>
+    <div>
     <asp:Label ID="lblErrorCantidadNumeros" runat="server" Text="La cantidad solo puede contener numeros" Visible="false" ></asp:Label>
-    
+   
     <asp:Label ID="lblErrorCantidadStock" runat="server" Text="La cantidad es mayor a el stock" Visible="false" ></asp:Label>
     
     <asp:Label ID="lblErrorCompra" runat="server" Text="No podes comprar un producto tuyo" Visible="false" ></asp:Label>
-
+   
     <asp:Label ID="Label1" runat="server" Text="El precio final es:" Visible="false" ></asp:Label>
     
     <asp:Label ID="lblPrecioFinal" runat="server"  Visible="false" ></asp:Label>
-    <br>
-    <asp:Button ID="btnComprar" runat="server" Text="Comprar ya!" Onclick="btnComprar_Click" CssClass="btn btn-primary" Visible="false" />
+    
+     </div>
 </asp:Content>

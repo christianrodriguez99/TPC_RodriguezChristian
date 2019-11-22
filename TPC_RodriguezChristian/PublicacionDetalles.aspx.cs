@@ -12,6 +12,7 @@ namespace TPC_RodriguezChristian
     public partial class PublicacionDetalles : System.Web.UI.Page
     {
         public Publicacion publicacion = new Publicacion();
+        public PublicacionNegocio publicacionNegocio = new PublicacionNegocio();
         public Usuario usuario = new Usuario();
         public UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         public Producto producto = new Producto();
@@ -19,6 +20,8 @@ namespace TPC_RodriguezChristian
         public VentaNegocio ventaNegocio = new VentaNegocio();
         public Compra compra = new Compra();
         public AccesoDatos accesoDAtos = new AccesoDatos();
+        public CompraPendiente compraPendiente = new CompraPendiente();
+        public CompraPendienteNegocio compraPendienteNegocio = new CompraPendienteNegocio();
         List<Publicacion> listaPublicacion;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,19 +49,23 @@ namespace TPC_RodriguezChristian
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            
+            lblErrorCantidadNumeros.Visible = false;
+            lblErrorCantidadStock.Visible = false;
+            lblErrorCompra.Visible = false;
            
             var publiSeleccionado = Convert.ToInt32(Request.QueryString["id"]);
             publicacion = listaPublicacion.Find(J => J.id == publiSeleccionado);
             int valido = 1;
-            venta.comprador = new Usuario();
-            venta.vendedor = new Usuario();
-            venta.publicacion = new Publicacion();
+
+            compraPendiente.comprador = new Usuario();
+            compraPendiente.vendedor = new Usuario();
+            compraPendiente.publicacion = new Publicacion();
             string username = Session["Userid"].ToString();
-            venta.comprador.id = usuarioNegocio.obteneridPorSession(username);
-            venta.publicacion.id = Convert.ToInt32(publiSeleccionado);
-            venta.fecha = DateTime.Now;
-            venta.vendedor.id = usuarioNegocio.obteneridVendedor(Convert.ToInt32(publiSeleccionado));
+            compraPendiente.comprador.id = usuarioNegocio.obteneridPorSession(username);
+            compraPendiente.publicacion.id = Convert.ToInt32(publiSeleccionado);
+            compraPendiente.fecha = DateTime.Now;
+            compraPendiente.vendedor.id = usuarioNegocio.obteneridVendedor(Convert.ToInt32(publiSeleccionado));
+            
 
 
             //cantidad
@@ -66,7 +73,7 @@ namespace TPC_RodriguezChristian
             decimal preciofinal;
             int cantidad;
 
-            if(venta.vendedor.id==venta.comprador.id)
+            if(compraPendiente.vendedor.id== compraPendiente.comprador.id)
             {
                 valido = 0;
                 lblErrorCompra.Visible = true;
@@ -88,30 +95,51 @@ namespace TPC_RodriguezChristian
 
             if (valor == 1)
             {
-                venta.cantidad = Convert.ToInt32(txtCantidad.Text);
+                compraPendiente.cantidad = Convert.ToInt32(txtCantidad.Text);
             }
 
             if (Convert.ToInt32(txtCantidad.Text) > publicacion.stock)
             {
                 lblErrorCantidadStock.Visible = true;
             }
+
+            compraPendiente.cantidad = cantidad;
+
+            //venta.comprador = new Usuario();
+            //venta.vendedor = new Usuario();
+            //venta.publicacion = new Publicacion();
+            //string username = Session["Userid"].ToString();
+            //venta.comprador.id = usuarioNegocio.obteneridPorSession(username);
+            //venta.publicacion.id = Convert.ToInt32(publiSeleccionado);
+            //venta.fecha = DateTime.Now;
+            //venta.vendedor.id = usuarioNegocio.obteneridVendedor(Convert.ToInt32(publiSeleccionado));
             if (valido == 1)
             {
                 
                 preciofinal = cantidad * publicacion.precio;
+                compraPendiente.precioTotal = preciofinal;
+                
                 Label1.Visible = true;
-                lblPrecioFinal.Text = preciofinal.ToString("F");
+                lblPrecioFinal.Text = preciofinal.ToString("F") + " por " + cantidad + " unidades";
                 lblPrecioFinal.Visible = true;
-                btnComprar.Visible = true;
+                if(btnSiguiente.Text=="Finalizar compra")
+                {
+                    publicacionNegocio.modificarStock(compraPendiente.publicacion.id, publicacion.stock - compraPendiente.cantidad);
+                    
+                    compraPendienteNegocio.agregar(compraPendiente);
+                    btnSiguiente.Visible = false;
+                    lblCantidad.Visible = false;
+                    Label1.Text = "Compra exitosa, pendiente de pago";
+                }
+                btnSiguiente.Text = "Finalizar compra";
+                txtCantidad.Visible = false;
+                
             }
 
 
 
         }
 
-        protected void btnComprar_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

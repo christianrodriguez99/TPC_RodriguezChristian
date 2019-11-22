@@ -14,5 +14,6 @@ namespace Dominio
         public Usuario vendedor { get; set; }
         public Usuario comprador { get; set; }
         public Publicacion publicacion { get; set; }
+        public decimal precioTotal { get; set; }
     }
 }

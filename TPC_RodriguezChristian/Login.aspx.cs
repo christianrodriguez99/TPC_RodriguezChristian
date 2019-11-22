@@ -26,21 +26,23 @@ namespace TPC_RodriguezChristian
         }
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (txtNombreDeUsuario.Text != "" && txtClave.Text != "")
+            {
 
-          
 
-            bool ok = usuarioNegocio.verificarlogin(txtNombreDeUsuario.Text,txtClave.Text);
+                bool ok = usuarioNegocio.verificarlogin(txtNombreDeUsuario.Text, txtClave.Text);
                 if (ok == true)
                 {
 
-                Session["Userid"] = txtNombreDeUsuario.Text;
-                Response.Redirect("SegundaPantalla.aspx");
+                    Session["Userid"] = txtNombreDeUsuario.Text;
+                    Response.Redirect("SegundaPantalla.aspx");
                 }
                 else
                 {
                     Session["Error" + Session.SessionID] = "Usuario y/o contraseña incorrecta";
                     Response.Redirect("PantallaError.aspx");
                 }
+            }
 
         }
     }

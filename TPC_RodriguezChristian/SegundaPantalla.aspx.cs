@@ -17,7 +17,7 @@ namespace TPC_RodriguezChristian
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] == "")
+            if ((string)Session["Userid"] == null)
                 Response.Redirect("Login.aspx");
 
         }

@@ -66,16 +66,19 @@ namespace Negocio
                 datos.setearQuery("select clave from Usuarios where nombreDeUsuario = @nombreDeUsuario");
                 datos.agregarParametro("@nombreDeUsuario", nombreUsuario);
                 datos.agregarParametro("@clave", clave);
-                datos.conexion.Open();               
-               string password = datos.comando.ExecuteScalar().ToString();
-                
+                datos.conexion.Open();
+               
+                    var resultado = datos.comando.ExecuteScalar();
+                if (resultado != DBNull.Value && resultado != null)
+                {
+                    string password = Convert.ToString(resultado);
                     if (password == clave)
                     {
                         return true;
                     }
-                
-                
-             
+
+                }
+
 
                 return false;
 

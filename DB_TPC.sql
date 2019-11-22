@@ -12,7 +12,8 @@ nombre varchar(50) not null,
 apellido varchar(50) not null,
 email varchar(50) not null,
 telefono varchar(50) not null,
-estado bit not null 
+estado bit not null ,
+dinero money
 )
 go
 create table Administradores
@@ -73,9 +74,15 @@ idPublicacion int foreign key references Publicaciones(id),
 fecha datetime not null
 )
 go
-create table PublicacionesxUsuarios(
-idUsuario int foreign key references Usuarios(id),
+create table ComprasPendientes
+(
+id int primary key identity (1,1),
+cantidad int not null,
+preciototal money not null,
 idPublicacion int foreign key references Publicaciones(id),
+idUsuarioVendedor int foreign key references Usuarios(id),
+idUsuarioComprador int foreign key references Usuarios(id),
+fecha datetime not null,
 )
 go
 insert into Usuarios(nombreDeUsuario,clave,dni,nombre,apellido,email,telefono,estado) Values ('Chrispa','33286489xd','41956008','Christian','Rodriguez','christiansrodriguez99@gmail.com','1145602785',1)
@@ -99,6 +106,7 @@ go
 insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario)values('Deskotip','Baratita','https://http2.mlstatic.com/pc-de-escritorio-dell-i5-4gb-hd-1tb-win10-pro-vostro-oferta-para-uso-hogar-y-empresa-garantia-oficial-D_NQ_NP_895983-MLA31077531976_062019-O.webp',99,500,1,2,1,2)
 
 select Count(nombreDeUsuario) from Usuarios where nombreDeUsuario = 'chrispa'
+select cp.id,cp.cantidad,cp.fecha,cp.preciototal,p.id,p.titulo,u.nombreDeUsuario from ComprasPendientes as cp inner join Publicaciones as p on cp.idPublicacion = p.id inner join Usuarios as u on cp.idUsuarioComprador = u.id
 select clave from usuarios where nombreDeUsuario = 'chrispa'
 select id from usuarios where nombreDeUsuario = 'chrispa' and clave = '33286489xd'
 select * from Publicaciones
@@ -106,5 +114,7 @@ delete from Publicaciones
 use master
 go
 drop database DB_TPC
+
+delete from ComprasPendientes
 
 
