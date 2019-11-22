@@ -103,9 +103,9 @@ insert into Categorias(nombre,estado) Values ('Notebook',1)
 go
 insert into Categorias(nombre,estado) Values ('Desktop',1)
 go
-insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario)values('Noteebook','Carasa','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',12,10000,1,1,1,1)
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idCategoria,idUsuario)values('Noteebook','Carasa','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',12,10000,1,1,1)
 go
-insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario)values('Deskotip','Baratita','https://http2.mlstatic.com/pc-de-escritorio-dell-i5-4gb-hd-1tb-win10-pro-vostro-oferta-para-uso-hogar-y-empresa-garantia-oficial-D_NQ_NP_895983-MLA31077531976_062019-O.webp',99,500,1,2,1,2)
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idCategoria,idUsuario)values('Deskotip','Baratita','https://http2.mlstatic.com/pc-de-escritorio-dell-i5-4gb-hd-1tb-win10-pro-vostro-oferta-para-uso-hogar-y-empresa-garantia-oficial-D_NQ_NP_895983-MLA31077531976_062019-O.webp',99,500,2,1,2)
 
 select Count(nombreDeUsuario) from Usuarios where nombreDeUsuario = 'chrispa'
 select cp.id,cp.cantidad,cp.fecha,cp.preciototal,p.id,p.titulo,uc.nombreDeUsuario,uc.id,uv.id from ComprasPendientes as cp inner join Publicaciones as p on cp.idPublicacion = p.id inner join Usuarios as uc on cp.idUsuarioComprador = uc.id inner join Usuarios as uv on cp.idUsuarioVendedor = uv.id
@@ -115,6 +115,8 @@ select * from Publicaciones
 delete from Publicaciones
 SELECT p.titulo,p.descripcion,p.urlimagen,p.stock,p.precio,u.nombre FROM Publicaciones as p  inner join Usuarios as u on u.id = p.idUsuario where u.nombreDeUsuario = 'chrispa'
 SELECT v.cantidad,v.fecha,p.id,p.titulo,v.precioTotal,ve.id as idvendedor,c.id FROM Ventas as v  inner join Publicaciones as p on v.idPublicacion=p.id inner join Usuarios as ve on ve.id = v.idUsuarioVendedor inner join Usuarios as c on c.id = v.idUsuarioComprador where c.nombreDeUsuario = 'chrispa'
+SELECT c.cantidad,c.fecha,p.id,p.titulo,c.precioTotal,ve.id,co.id,ve.nombreDeUsuario FROM Compras as c  inner join Publicaciones as p on c.idPublicacion=p.id inner join Usuarios as ve on ve.id = c.idUsuarioVendedor inner join Usuarios as co on co.id = c.idUsuarioComprador where co.nombreDeUsuario = 'chrispa'
+SELECT v.cantidad,v.fecha,p.id,p.titulo,v.precioTotal,ve.id,c.id,c.nombreDeUsuario FROM Ventas as v  inner join Publicaciones as p on v.idPublicacion=p.id inner join Usuarios as ve on ve.id = v.idUsuarioVendedor inner join Usuarios as c on c.id = v.idUsuarioComprador where ve.nombreDeUsuario = 'franca'
 use master
 go
 drop database DB_TPC

@@ -249,20 +249,27 @@ namespace Negocio
             }
         }
 
-        public List<Usuario> listar()
+        public List<Usuario> listarPorNombre(string nombre)
             {
                 List<Usuario> lista = new List<Usuario>();
                 Usuario aux;
                 AccesoDatos datos = new AccesoDatos();
                 try
                 {
-                    datos.setearQuery("SELECT * FROM Usuarios");
+                    datos.setearQuery("SELECT * FROM Usuarios where nombreDeUsuario = @nombreDeUsuario");
+                    datos.agregarParametro("@nombreDeUsuario", nombre);
                     datos.ejecutarLector();
                     while (datos.lector.Read())
                     {
                         aux = new Usuario();
                         aux.id = datos.lector.GetInt32(0);
-                        aux.nombre = datos.lector.GetString(1);
+                        aux.nombreDeUsuario = datos.lector.GetString(1);
+                        aux.clave = datos.lector.GetString(2);
+                        aux.nombre = datos.lector.GetString(3);
+                        aux.apellido = datos.lector.GetString(4);
+                        aux.email = datos.lector.GetString(5);
+                        aux.nroTelefono = datos.lector.GetInt32(6);
+                        aux.estado = datos.lector.GetBoolean(7);
 
                         lista.Add(aux);
                     }

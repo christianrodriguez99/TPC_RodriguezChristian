@@ -12,8 +12,9 @@
                 <div class="card">
                     <img src="<%#Eval("urlImagen") %>" class="card-img-top" alt="..." style="max-height:250px;max-width:250px">
                     <div class="card-body">
-                <h5 class="card-title"><%#Eval("titulo")%> </h5>
-                <p class="card-text"><%#Eval("descripcion")%> </p>
+                <h5 class="card-title">Titulo: <%#Eval("titulo")%> </h5>
+                <p class="card-text">Descripcion: <%#Eval("descripcion")%> </p>
+                  <p class="card-text">Stock: <%#Eval("stock")%> </p>
       
                    
              <asp:Button ID="btnModificar" CssClass="btn btn-primary" Text="Modificar publicacion" Onclick="btnModificar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idModificar" runat="server"  />

@@ -49,8 +49,8 @@ namespace TPC_RodriguezChristian
                 else
                 {
                     valido = 0;
-                    //Session["Error" + Session.SessionID] = "El dni debe contener numeros";
-                    //Response.Redirect("PantallaError.aspx?dni");
+                    Session["Error" + Session.SessionID] = "El dni debe contener numeros";
+                    Response.Redirect("PantallaError.aspx?dni");
 
 
                 }
@@ -73,8 +73,8 @@ namespace TPC_RodriguezChristian
                 else
                 {
                     valido = 0;
-                    //Session["Error" + Session.SessionID] = "El telefono debe contener numeros";
-                    //Response.Redirect("PantallaError.aspx");
+                    Session["Error" + Session.SessionID] = "El telefono debe contener numeros";
+                    Response.Redirect("PantallaError.aspx");
                 }
 
 
@@ -94,8 +94,8 @@ namespace TPC_RodriguezChristian
                     }
                     else
                     {
-                        //Session["Error" + Session.SessionID] = "El nombre de usuario ya esta en uso";
-                        //Response.Redirect("PantallaError.aspx");
+                        Session["Error" + Session.SessionID] = "El nombre de usuario ya esta en uso";
+                        Response.Redirect("PantallaError.aspx");
                     }
                 }
 

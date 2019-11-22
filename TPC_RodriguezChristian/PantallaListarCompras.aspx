@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="PantallaListarVentas.aspx.cs" Inherits="TPC_RodriguezChristian.PantallaListarVentas" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="PantallaListarCompras.aspx.cs" Inherits="TPC_RodriguezChristian.PantallaListarCompras" %>
+
 
 <asp:Content ID="PantallaListarMisProductos" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -11,10 +12,10 @@
             <ItemTemplate>
                 <div class="card">
                     <div class="card-body">
-                <h5 class="card-title">Vendiste: <%#Eval("publicacion.titulo")%> </h5>
+                <h5 class="card-title">Compraste: <%#Eval("publicacion.titulo")%> </h5>
                 <p class="card-text">Cantidad: <%#Eval("cantidad")%> </p>
                        <p class="card-text">Importe: <%#Eval("precioTotal")%> </p>
-                        <p class="card-text">Comprador: <%#Eval("comprador.nombreDeUsuario")%> </p>
+                        <p class="card-text">Vendedor: <%#Eval("vendedor.nombreDeUsuario")%> </p>
       
                               
                     </div>

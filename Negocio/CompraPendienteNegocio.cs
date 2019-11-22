@@ -41,7 +41,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("select cp.id,cp.cantidad,cp.fecha,cp.preciototal,p.id,p.titulo,uc.nombreDeUsuario,uc.id,uv.id from ComprasPendientes as cp inner join Publicaciones as p on cp.idPublicacion = p.id inner join Usuarios as uc on cp.idUsuarioComprador = uc.id inner join Usuarios as uv on cp.idUsuarioVendedor = uv.id");
+                datos.setearQuery("select cp.id,cp.cantidad,cp.fecha,cp.preciototal,p.id,p.titulo,uc.nombreDeUsuario,uc.id,uv.id from ComprasPendientes as cp inner join Publicaciones as p on cp.idPublicacion = p.id inner join Usuarios as uc on cp.idUsuarioComprador = uc.id inner join Usuarios as uv on cp.idUsuarioVendedor = uv.id where p.estado = 1");
                 datos.ejecutarLector();
                 while (datos.lector.Read())
                 {

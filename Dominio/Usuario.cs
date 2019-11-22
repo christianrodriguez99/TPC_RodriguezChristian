@@ -16,6 +16,7 @@ namespace Dominio
         public string nombre { get; set; }
         public string email { get; set; }
         public int nroTelefono { get; set; }
+        public bool estado { get; set; }
         public decimal dinero { get; set; }
 
     }

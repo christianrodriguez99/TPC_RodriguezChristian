@@ -136,8 +136,10 @@
     <Content Include="PantallaCrearPublicacion.aspx" />
     <Content Include="PantallaCrearUsuario.aspx" />
     <Content Include="PantallaError.aspx" />
+    <Content Include="PantallaListarCompras.aspx" />
     <Content Include="PantallaListarPublicaciones.aspx" />
     <Content Include="PantallaListarVentas.aspx" />
+    <Content Include="PantallaMisDatos.aspx" />
     <Content Include="PantallaMisProductos.aspx" />
     <Content Include="PantallaPerfil.aspx" />
     <Content Include="PublicacionDetalles.aspx" />
@@ -215,6 +217,13 @@
     <Compile Include="PantallaError.aspx.designer.cs">
       <DependentUpon>PantallaError.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PantallaListarCompras.aspx.cs">
+      <DependentUpon>PantallaListarCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaListarCompras.aspx.designer.cs">
+      <DependentUpon>PantallaListarCompras.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PantallaListarPublicaciones.aspx.cs">
       <DependentUpon>PantallaListarPublicaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -228,6 +237,13 @@
     </Compile>
     <Compile Include="PantallaListarVentas.aspx.designer.cs">
       <DependentUpon>PantallaListarVentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaMisDatos.aspx.cs">
+      <DependentUpon>PantallaMisDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaMisDatos.aspx.designer.cs">
+      <DependentUpon>PantallaMisDatos.aspx</DependentUpon>
     </Compile>
     <Compile Include="PantallaMisProductos.aspx.cs">
       <DependentUpon>PantallaMisProductos.aspx</DependentUpon>

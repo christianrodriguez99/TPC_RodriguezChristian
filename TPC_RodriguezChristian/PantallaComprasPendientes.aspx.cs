@@ -45,7 +45,6 @@ namespace TPC_RodriguezChristian
                 int vendedorid = Convert.ToInt32(commandArgs[4]);
                 int compradorid = Convert.ToInt32(commandArgs[5]);
                 decimal preciototal = Convert.ToDecimal(commandArgs[6]);
-                string titulo = commandArgs[7];
 
                 venta.cantidad = cantidad;
                 venta.comprador = new Usuario();
@@ -54,8 +53,8 @@ namespace TPC_RodriguezChristian
                 venta.comprador.id = compradorid;
                 venta.fecha = fecha;
                 venta.publicacion.id = publicacionid;
-                venta.publicacion.titulo = titulo;
                 venta.vendedor.id = vendedorid;
+                venta.precioTotal = preciototal;
 
                 compra.comprador = new Usuario();
                 compra.vendedor = new Usuario();
@@ -64,8 +63,8 @@ namespace TPC_RodriguezChristian
                 compra.comprador.id = compradorid;
                 compra.fecha = fecha;
                 compra.publicacion.id = publicacionid;
-                compra.publicacion.titulo = titulo;
                 compra.vendedor.id = vendedorid;
+                compra.precioTotal = preciototal;
 
                 compraNegocio.agregar(compra);
                 ventaNegocio.agregar(venta);

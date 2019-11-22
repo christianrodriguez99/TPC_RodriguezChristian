@@ -17,7 +17,7 @@
                         <p class="card-text">Cantidad comprada: <%#Eval("cantidad")%> </p>
                         <p class="card-text">Precio total: <%#Eval("precioTotal")%> </p>
                         <p class="card-text">Comprador: <%#Eval("comprador.nombreDeUsuario")%> </p>
-        <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar venta" Onclick="btnAceptar_Click" CommandArgument='<%#Eval("id")+";"+ Eval("publicacion.id")+";"+ Eval("cantidad")+";"+ Eval("fecha")+";"+ Eval("vendedor.id")+";"+ Eval("comprador.id")+";"+ Eval("preciototal")+";"+ Eval("publicacion.titulo")%>' CommandName="idCompraPendienteAceptada" runat="server"  />
+        <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar venta" Onclick="btnAceptar_Click" CommandArgument='<%#Eval("id")+";"+ Eval("publicacion.id")+";"+ Eval("cantidad")+";"+ Eval("fecha")+";"+ Eval("vendedor.id")+";"+ Eval("comprador.id")+";"+ Eval("preciototal")%>' CommandName="idCompraPendienteAceptada" runat="server"  />
 <asp:Button ID="btnRechazar" CssClass="btn btn-primary" Text="Rechazar venta" Onclick="btnRechazar_Click" CommandArgument='<%#Eval("id")+";"+ Eval("publicacion.id")+";"+ Eval("cantidad")%>' CommandName="idCompraPendienteRechazada" runat="server"  />
                     
                     

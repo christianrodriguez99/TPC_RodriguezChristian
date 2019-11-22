@@ -49,6 +49,7 @@ namespace TPC_RodriguezChristian
 
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
+          
             lblErrorCantidadNumeros.Visible = false;
             lblErrorCantidadStock.Visible = false;
             lblErrorCompra.Visible = false;

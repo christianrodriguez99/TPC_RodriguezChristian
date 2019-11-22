@@ -16,10 +16,12 @@ namespace TPC_RodriguezChristian
         protected void Page_Load(object sender, EventArgs e)
         {
             string usuario = Session["nombreDeUsuario"].ToString();
-            
 
-            rptOutter.DataSource = publicacionNegocio.listarPorNombre(usuario);
-            rptOutter.DataBind();
+            if (!Page.IsPostBack)
+            {
+                rptOutter.DataSource = publicacionNegocio.listarPorNombre(usuario);
+                rptOutter.DataBind();
+            }
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
@@ -29,7 +31,9 @@ namespace TPC_RodriguezChristian
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            var productoSeleccionado = ((Button)sender).CommandArgument;
+            publicacionNegocio.eliminar(Convert.ToInt32(productoSeleccionado));
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

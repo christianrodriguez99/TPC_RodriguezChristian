@@ -29,7 +29,7 @@ namespace TPC_RodriguezChristian
             {
                 if (!IsPostBack)
                 {
-                    if(Session["Userid"] == null)
+                    if(Session["nombreDeUsuario"] == null)
                     Response.Redirect("Login.aspx");
 
                     listaMarcas = marcaNegocio.listar();
@@ -68,7 +68,7 @@ namespace TPC_RodriguezChristian
         protected void btnCrear_Click(object sender, EventArgs e)
         {
             int valido = 1;
-            string nombreDeUsuario = Session["Userid"].ToString();
+            string nombreDeUsuario = Session["nombreDeUsuario"].ToString();
             publicacion.titulo = txtTitulo.Text;
             publicacion.marca = new Marca();
             publicacion.marca.id = Convert.ToInt32(cboMarcas.SelectedItem.Value);

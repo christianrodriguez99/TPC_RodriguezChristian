@@ -21,7 +21,7 @@ namespace TPC_RodriguezChristian
 
         protected void btnMisCompras_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("PantallaListarCompras");
         }
 
         protected void btnMisVentas_Click(object sender, EventArgs e)

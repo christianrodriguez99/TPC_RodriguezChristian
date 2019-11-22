@@ -43,7 +43,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("SELECT v.cantidad,v.fecha,p.id,p.titulo,v.precioTotal,ve.id,c.id FROM Ventas as v  inner join Publicaciones as p on v.idPublicacion=p.id inner join Usuarios as ve on ve.id = v.idUsuarioVendedor inner join Usuarios as c on c.id = v.idUsuarioComprador where c.nombreDeUsuario = @nombreDeUsuario");
+                datos.setearQuery("SELECT v.cantidad,v.fecha,p.id,p.titulo,v.precioTotal,ve.id,c.id,c.nombreDeUsuario FROM Ventas as v  inner join Publicaciones as p on v.idPublicacion=p.id inner join Usuarios as ve on ve.id = v.idUsuarioVendedor inner join Usuarios as c on c.id = v.idUsuarioComprador where ve.nombreDeUsuario = @nombreDeUsuario");
                 datos.agregarParametro("@nombreDeUsuario", nombre);
                 datos.ejecutarLector();
                 while (datos.lector.Read())
@@ -59,6 +59,7 @@ namespace Negocio
                     aux.comprador = new Usuario();
                     aux.vendedor.id = datos.lector.GetInt32(5);
                     aux.comprador.id = datos.lector.GetInt32(6);
+                    aux.comprador.nombreDeUsuario = datos.lector.GetString(7);
 
                  
                     lista.Add(aux);

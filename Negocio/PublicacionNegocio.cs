@@ -13,7 +13,9 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("delete from Publicaciones where id =" + id);
+                datos.setearQuery("Update Publicaciones set estado=0 Where id=@Id");
+                datos.agregarParametro("@Id", id);
+
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -60,13 +62,13 @@ namespace Negocio
             try
             {
 
-                datos.setearQuery("insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario)values(@titulo,@descripcion,@urlImagen,@stock,@precio,@estado,@idMarca,@idCategoria,@idUsuario)");
+                datos.setearQuery("insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario)values(@titulo,@descripcion,@urlImagen,@stock,@precio,@idMarca,@idCategoria,@idUsuario)");
                 datos.agregarParametro("@titulo", Publicacion.titulo);
                 datos.agregarParametro("@descripcion", Publicacion.descripcion);
                 datos.agregarParametro("@urlImagen", Publicacion.urlImagen);
                 datos.agregarParametro("@stock", Publicacion.stock);
                 datos.agregarParametro("@precio", Publicacion.precio);
-                datos.agregarParametro("@estado", Publicacion.estado);
+                datos.agregarParametro("@estado", true);
                 datos.agregarParametro("@idmarca", Publicacion.marca.id);
                 datos.agregarParametro("@idcategoria", Publicacion.categoria.id);
                 datos.agregarParametro("@idusuario", Publicacion.usuario.id);
@@ -125,7 +127,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("SELECT * FROM Publicaciones");
+                datos.setearQuery("SELECT * FROM Publicaciones where estado = 1");
                 datos.ejecutarLector();
                 while (datos.lector.Read())
                 {
@@ -163,17 +165,18 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("SELECT p.titulo,p.descripcion,p.urlimagen,p.stock,p.precio FROM Publicaciones as p  inner join Usuarios as u on p.idUsuario = u.id where u.nombreDeUsuario=@nombreDeUsuario");
+                datos.setearQuery("SELECT p.id,p.titulo,p.descripcion,p.urlimagen,p.stock,p.precio FROM Publicaciones as p  inner join Usuarios as u on p.idUsuario = u.id where u.nombreDeUsuario=@nombreDeUsuario and p.estado=1");
                 datos.agregarParametro("@nombreDeUsuario", nombre);
                 datos.ejecutarLector();
                 while(datos.lector.Read())
                 {
                     aux = new Publicacion();
-                    aux.titulo = datos.lector.GetString(0);
-                    aux.descripcion = datos.lector.GetString(1);
-                    aux.urlImagen = datos.lector.GetString(2);
-                    aux.stock = datos.lector.GetInt32(3);
-                    aux.precio = datos.lector.GetDecimal(4);
+                    aux.id = datos.lector.GetInt32(0);
+                    aux.titulo = datos.lector.GetString(1);
+                    aux.descripcion = datos.lector.GetString(2);
+                    aux.urlImagen = datos.lector.GetString(3);
+                    aux.stock = datos.lector.GetInt32(4);
+                    aux.precio = datos.lector.GetDecimal(5);
 
 
 
