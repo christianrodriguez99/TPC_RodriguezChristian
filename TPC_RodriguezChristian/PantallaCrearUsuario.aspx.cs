@@ -28,7 +28,7 @@ namespace TPC_RodriguezChristian
           
 
                 int valido = 1;
-                Session["username"] = txtNombreDeUsuario.Text;
+                Session["nombreDeUsuario"] = txtNombreDeUsuario.Text;
                 usuario.nombreDeUsuario = txtNombreDeUsuario.Text;
                 usuario.clave = txtClave.Text;
                 usuario.apellido = txtApellido.Text;

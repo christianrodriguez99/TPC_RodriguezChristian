@@ -29,7 +29,7 @@ namespace TPC_RodriguezChristian
             
             try
             {
-                 if(Session["Userid"] == null)
+                 if(Session["nombreDeUsuario"] == null)
                     Response.Redirect("Login.aspx");
                 listaPublicacion = publicacionNegocio.listar();
                 //
@@ -60,7 +60,7 @@ namespace TPC_RodriguezChristian
             compraPendiente.comprador = new Usuario();
             compraPendiente.vendedor = new Usuario();
             compraPendiente.publicacion = new Publicacion();
-            string username = Session["Userid"].ToString();
+            string username = Session["nombreDeUsuario"].ToString();
             compraPendiente.comprador.id = usuarioNegocio.obteneridPorSession(username);
             compraPendiente.publicacion.id = Convert.ToInt32(publiSeleccionado);
             compraPendiente.fecha = DateTime.Now;

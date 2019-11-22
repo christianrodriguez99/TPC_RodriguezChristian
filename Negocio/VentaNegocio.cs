@@ -34,27 +34,33 @@ namespace Negocio
             }
         }
 
-     
 
-        public List<Venta> listar()
+
+        public List<Venta> listarPorNombre(string nombre)
         {
             List<Venta> lista = new List<Venta>();
             Venta aux;
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("SELECT * FROM Ventas where id=@id");
+                datos.setearQuery("SELECT v.cantidad,v.fecha,p.id,p.titulo,v.precioTotal,ve.id,c.id FROM Ventas as v  inner join Publicaciones as p on v.idPublicacion=p.id inner join Usuarios as ve on ve.id = v.idUsuarioVendedor inner join Usuarios as c on c.id = v.idUsuarioComprador where c.nombreDeUsuario = @nombreDeUsuario");
+                datos.agregarParametro("@nombreDeUsuario", nombre);
                 datos.ejecutarLector();
                 while (datos.lector.Read())
                 {
                     aux = new Venta();
-                    aux.id = datos.lector.GetInt32(0);
-                    aux.cantidad = datos.lector.GetInt32(1);
-                    aux.fecha = datos.lector.GetDateTime(6);
-                    aux.comprador.id = datos.lector.GetInt32(3);
-                    aux.publicacion.id = datos.lector.GetInt32(4);
+                    aux.cantidad = datos.lector.GetInt32(0);
+                    aux.fecha = datos.lector.GetDateTime(1);
+                    aux.publicacion = new Publicacion();
+                    aux.publicacion.id = datos.lector.GetInt32(2);
+                    aux.publicacion.titulo = datos.lector.GetString(3);
+                    aux.precioTotal = datos.lector.GetDecimal(4);
+                    aux.vendedor = new Usuario();
+                    aux.comprador = new Usuario();
+                    aux.vendedor.id = datos.lector.GetInt32(5);
+                    aux.comprador.id = datos.lector.GetInt32(6);
 
-
+                 
                     lista.Add(aux);
                 }
 
@@ -73,4 +79,5 @@ namespace Negocio
         }
     }
 }
+
 

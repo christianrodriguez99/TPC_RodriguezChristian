@@ -26,7 +26,7 @@ namespace TPC_RodriguezChristian
 
         protected void btnMisVentas_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("PantallaListarVentas");
         }
 
         protected void btnComprasPendientes_Click(object sender, EventArgs e)
@@ -37,6 +37,12 @@ namespace TPC_RodriguezChristian
         protected void btnMisProductos_Click(object sender, EventArgs e)
         {
             Response.Redirect("PantallaMisProductos");
+        }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("Login");
         }
     }
 }

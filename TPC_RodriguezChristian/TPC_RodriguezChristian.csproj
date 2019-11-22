@@ -137,6 +137,7 @@
     <Content Include="PantallaCrearUsuario.aspx" />
     <Content Include="PantallaError.aspx" />
     <Content Include="PantallaListarPublicaciones.aspx" />
+    <Content Include="PantallaListarVentas.aspx" />
     <Content Include="PantallaMisProductos.aspx" />
     <Content Include="PantallaPerfil.aspx" />
     <Content Include="PublicacionDetalles.aspx" />
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="PantallaListarPublicaciones.aspx.designer.cs">
       <DependentUpon>PantallaListarPublicaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaListarVentas.aspx.cs">
+      <DependentUpon>PantallaListarVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaListarVentas.aspx.designer.cs">
+      <DependentUpon>PantallaListarVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="PantallaMisProductos.aspx.cs">
       <DependentUpon>PantallaMisProductos.aspx</DependentUpon>

@@ -17,7 +17,7 @@
       
                    
              <asp:Button ID="btnModificar" CssClass="btn btn-primary" Text="Modificar publicacion" Onclick="btnModificar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idModificar" runat="server"  />
-             <asp:Button ID="btnEliminar" CssClass="btn btn-primary" Text="Rechazar venta" Onclick="btnEliminar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idEliminar" runat="server"  />
+             <asp:Button ID="btnEliminar" CssClass="btn btn-primary" Text="Eliminar publicacion" Onclick="btnEliminar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idEliminar" runat="server"  />
                     
                     </div>
                 

@@ -17,7 +17,7 @@ namespace TPC_RodriguezChristian
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((string)Session["Userid"] == null)
+            if ((string)Session["nombreDeUsuario"] == null)
                 Response.Redirect("Login.aspx");
 
         }
@@ -34,11 +34,7 @@ namespace TPC_RodriguezChristian
         {
             Response.Redirect("PantallaPerfil");
         }
-        protected void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            Session.RemoveAll();
-            Response.Redirect("Login.aspx");
-        }
+    
 
     }
 }

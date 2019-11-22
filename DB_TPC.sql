@@ -62,7 +62,8 @@ cantidad int not null,
 idUsuarioVendedor int foreign key references Usuarios(id),
 idUsuarioComprador int foreign key references Usuarios(id),
 idPublicacion int foreign key references Publicaciones(id),
-fecha datetime not null
+fecha datetime not null,
+precioTotal money not null
 )
 go
 create table Compras(
@@ -71,7 +72,8 @@ cantidad int not null,
 idUsuarioVendedor int foreign key references Usuarios(id),
 idUsuarioComprador int foreign key references Usuarios(id),
 idPublicacion int foreign key references Publicaciones(id),
-fecha datetime not null
+fecha datetime not null,
+precioTotal money not null
 )
 go
 create table ComprasPendientes
@@ -106,11 +108,13 @@ go
 insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario)values('Deskotip','Baratita','https://http2.mlstatic.com/pc-de-escritorio-dell-i5-4gb-hd-1tb-win10-pro-vostro-oferta-para-uso-hogar-y-empresa-garantia-oficial-D_NQ_NP_895983-MLA31077531976_062019-O.webp',99,500,1,2,1,2)
 
 select Count(nombreDeUsuario) from Usuarios where nombreDeUsuario = 'chrispa'
-select cp.id,cp.cantidad,cp.fecha,cp.preciototal,p.id,p.titulo,u.nombreDeUsuario from ComprasPendientes as cp inner join Publicaciones as p on cp.idPublicacion = p.id inner join Usuarios as u on cp.idUsuarioComprador = u.id
+select cp.id,cp.cantidad,cp.fecha,cp.preciototal,p.id,p.titulo,uc.nombreDeUsuario,uc.id,uv.id from ComprasPendientes as cp inner join Publicaciones as p on cp.idPublicacion = p.id inner join Usuarios as uc on cp.idUsuarioComprador = uc.id inner join Usuarios as uv on cp.idUsuarioVendedor = uv.id
 select clave from usuarios where nombreDeUsuario = 'chrispa'
 select id from usuarios where nombreDeUsuario = 'chrispa' and clave = '33286489xd'
 select * from Publicaciones
 delete from Publicaciones
+SELECT p.titulo,p.descripcion,p.urlimagen,p.stock,p.precio,u.nombre FROM Publicaciones as p  inner join Usuarios as u on u.id = p.idUsuario where u.nombreDeUsuario = 'chrispa'
+SELECT v.cantidad,v.fecha,p.id,p.titulo,v.precioTotal,ve.id as idvendedor,c.id FROM Ventas as v  inner join Publicaciones as p on v.idPublicacion=p.id inner join Usuarios as ve on ve.id = v.idUsuarioVendedor inner join Usuarios as c on c.id = v.idUsuarioComprador where c.nombreDeUsuario = 'chrispa'
 use master
 go
 drop database DB_TPC

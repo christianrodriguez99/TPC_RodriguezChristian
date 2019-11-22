@@ -17,13 +17,13 @@ namespace Negocio
             try
             {
 
-                datos.setearQuery("insert into ComprasPendientes (cantidad,idUsuarioVendedor,idUsuarioComprador,idPublicacion,fecha,preciototal) values (@cantidad,@idUsuarioVendedor,@idUsuarioComprador,@idPublicacion,@fecha,@precioTotal)");
+                datos.setearQuery("insert into ComprasPendientes (cantidad,idUsuarioVendedor,idUsuarioComprador,idPublicacion,fecha,precioTotal) values (@cantidad,@idUsuarioVendedor,@idUsuarioComprador,@idPublicacion,@fecha,@precioTotal)");
                 datos.agregarParametro("@idUsuarioComprador", compraPendiente.comprador.id);
                 datos.agregarParametro("@idUsuarioVendedor", compraPendiente.vendedor.id);
                 datos.agregarParametro("@cantidad", compraPendiente.cantidad);
                 datos.agregarParametro("@fecha", compraPendiente.fecha);
                 datos.agregarParametro("@idPublicacion", compraPendiente.publicacion.id);
-                datos.agregarParametro("@precioTotal", compraPendiente.publicacion.id);
+                datos.agregarParametro("@precioTotal", compraPendiente.precioTotal);
                 datos.ejecutarAccion();
 
             }

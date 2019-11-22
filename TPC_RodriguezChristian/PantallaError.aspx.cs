@@ -17,17 +17,17 @@ namespace TPC_RodriguezChristian
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
            
-            if (Request.Url.AbsoluteUri== "https://localhost:44394/PantallaError?dni")
-            {
-                Response.Redirect("PantallaCrearUsuario.aspx");
-            }
-            Response.Redirect(Request.UrlReferrer.ToString());
+            //if (Request.Url.AbsoluteUri== "https://localhost:44394/PantallaError?dni")
+            //{
+            //    Response.Redirect("PantallaCrearUsuario.aspx");
+            //}
+            //Response.Redirect(Request.UrlReferrer.ToString());
 
-            if (Request.Url.AbsoluteUri == "https://localhost:44394/PantallaError?dni")
-            {
-                Response.Redirect("Login.aspx");
-            }
-            Response.Redirect(Request.UrlReferrer.ToString());
+            //if (Request.Url.AbsoluteUri == "https://localhost:44394/PantallaError?dni")
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
+            //Response.Redirect(Request.UrlReferrer.ToString());
 
         }
     }

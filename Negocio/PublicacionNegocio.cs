@@ -156,26 +156,25 @@ namespace Negocio
 
         }
 
-        public List<Publicacion> listarPorId(int id)
+        public List<Publicacion> listarPorNombre(string nombre)
         {
             List<Publicacion> lista = new List<Publicacion>();
             Publicacion aux;
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearQuery("SELECT * FROM Publicaciones where idUsuario=@idUsuario");
-                datos.agregarParametro("@idUsuario", id);
+                datos.setearQuery("SELECT p.titulo,p.descripcion,p.urlimagen,p.stock,p.precio FROM Publicaciones as p  inner join Usuarios as u on p.idUsuario = u.id where u.nombreDeUsuario=@nombreDeUsuario");
+                datos.agregarParametro("@nombreDeUsuario", nombre);
                 datos.ejecutarLector();
                 while(datos.lector.Read())
                 {
                     aux = new Publicacion();
-                    aux.id = datos.lector.GetInt32(0);
-                    aux.titulo = datos.lector.GetString(1);
-                    aux.descripcion = datos.lector.GetString(2);
-                    aux.urlImagen = datos.lector.GetString(3);
-                    aux.stock = datos.lector.GetInt32(4);
-                    aux.precio = datos.lector.GetDecimal(5);
-                    aux.estado = datos.lector.GetBoolean(10);
+                    aux.titulo = datos.lector.GetString(0);
+                    aux.descripcion = datos.lector.GetString(1);
+                    aux.urlImagen = datos.lector.GetString(2);
+                    aux.stock = datos.lector.GetInt32(3);
+                    aux.precio = datos.lector.GetDecimal(4);
+
 
 
                     lista.Add(aux);

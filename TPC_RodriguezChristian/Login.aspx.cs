@@ -34,7 +34,7 @@ namespace TPC_RodriguezChristian
                 if (ok == true)
                 {
 
-                    Session["Userid"] = txtNombreDeUsuario.Text;
+                    Session["nombreDeUsuario"] = txtNombreDeUsuario.Text;
                     Response.Redirect("SegundaPantalla.aspx");
                 }
                 else

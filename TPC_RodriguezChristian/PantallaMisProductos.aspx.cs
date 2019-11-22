@@ -15,7 +15,10 @@ namespace TPC_RodriguezChristian
         PublicacionNegocio publicacionNegocio = new PublicacionNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
-            rptOutter.DataSource = publicacionNegocio.listarPorId(Convert.ToInt32(rptOutter.DataSourceID));
+            string usuario = Session["nombreDeUsuario"].ToString();
+            
+
+            rptOutter.DataSource = publicacionNegocio.listarPorNombre(usuario);
             rptOutter.DataBind();
         }
 
