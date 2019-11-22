@@ -15,6 +15,7 @@
                     <div class="card-body">
                 <h5 class="card-title"><%#Eval("titulo")%> </h5>
                 <p class="card-text"><%#Eval("descripcion")%> </p>
+                    <p class="card-text"><%#Eval("estadoProducto")%> </p>
       
                    
                     <a class="btn btn-primary" href="PublicacionDetalles.aspx?id=<%#Eval("Id")%>">Detalles</a>

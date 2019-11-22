@@ -11,6 +11,7 @@
                 <p class="card-text">Descripcion: <% = publicacion.descripcion %></p>
                 <p class="card-text"><% = publicacion.precio %>$</p>
                 <p class="card-text">Unidades disponibles: <% = publicacion.stock %> unidades</p>
+                <p class="card-text">Estado: <% = publicacion.estadoProducto %></p>
             </div>
         </div>
 

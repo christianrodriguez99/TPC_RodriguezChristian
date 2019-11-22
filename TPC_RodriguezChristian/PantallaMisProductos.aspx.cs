@@ -21,6 +21,11 @@ namespace TPC_RodriguezChristian
             {
                 rptOutter.DataSource = publicacionNegocio.listarPorNombre(usuario);
                 rptOutter.DataBind();
+                if (rptOutter.Items.Count == 0)
+                {
+                    Label1.Visible = true;
+
+                }
             }
         }
 

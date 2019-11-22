@@ -8,7 +8,7 @@
         <asp:TextBox ID="txtNombreDeUsuario" runat="server"></asp:TextBox>
     
         <asp:Label ID="lblClave" runat="server" Text="Contraseña"></asp:Label>
-        <asp:TextBox ID="txtClave" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtClave" runat="server" TextMode="Password" ></asp:TextBox>
 
             <asp:Button ID="btnCrear" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" CssClass="btn btn-primary"/>
 

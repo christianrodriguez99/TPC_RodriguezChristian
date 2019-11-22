@@ -54,6 +54,7 @@ idMarca int foreign key references Marcas(id),
 idProducto bigint foreign key references Productos(id),
 idUsuario int foreign key references Usuarios(id),
 estado bit not null,
+estadoProducto varchar(50) not null
 )
 go
 create table Ventas(

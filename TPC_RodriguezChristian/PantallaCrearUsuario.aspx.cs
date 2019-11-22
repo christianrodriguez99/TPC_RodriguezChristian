@@ -58,7 +58,7 @@ namespace TPC_RodriguezChristian
 
                 if (value == 1)
                 {
-                    usuario.dni = Convert.ToInt32(txtDni.Text);
+                    usuario.dni = txtDni.Text;
                 }
 
 
@@ -80,7 +80,7 @@ namespace TPC_RodriguezChristian
 
                 if (valor == 1)
                 {
-                    usuario.nroTelefono = Convert.ToInt32(txtTelefono.Text);
+                    usuario.nroTelefono = txtTelefono.Text;
                 }
 
                 if (valido == 1)

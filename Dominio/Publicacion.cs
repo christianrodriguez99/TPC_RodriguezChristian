@@ -8,6 +8,8 @@ namespace Dominio
 {
     public class Publicacion
     {
+        
+
         public int id { get; set; }
         public string titulo { get; set; }
         public string descripcion { get; set; }
@@ -19,5 +21,6 @@ namespace Dominio
         public Usuario usuario { get; set; }
         public Categoria categoria { get; set; }
         public Marca marca { get; set; }
+        public string estadoProducto { get; set; }
     }
 }

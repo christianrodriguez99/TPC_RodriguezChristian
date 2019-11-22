@@ -78,6 +78,7 @@ namespace TPC_RodriguezChristian
             publicacion.usuario.id = usuarioNegocio.obteneridPorSession(nombreDeUsuario);
             publicacion.descripcion = txtDescripcion.Text;
             publicacion.urlImagen = txtImagen.Text;
+            publicacion.estado = true;
             
 
 
@@ -128,11 +129,11 @@ namespace TPC_RodriguezChristian
 
             if(cboEstados.SelectedValue=="Nuevo")
             {
-                publicacion.estado = false;
+                publicacion.estadoProducto = "Nuevo";
             }
             else
             {
-                publicacion.estado = true;
+                publicacion.estadoProducto = "Usado";
             }
            
 

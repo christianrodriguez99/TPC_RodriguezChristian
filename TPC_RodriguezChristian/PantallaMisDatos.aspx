@@ -1,15 +1,32 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PantallaMisDatos.aspx.cs" Inherits="TPC_RodriguezChristian.PantallaMisDatos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="PantallaMisDatos.aspx.cs" Inherits="TPC_RodriguezChristian.PantallaMisDatos" %>
 
-<!DOCTYPE html>
+<asp:Content ID="PantallaListarMisProductos" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+     <h1 class="text-center">Mis Publicaciones</h1>
+
+    
+        <div class=" style="border:1px solid #808080 ;box-shadow: 0px 2px 5px #000000;">
+      <asp:Repeater runat="server" ID="rptOutter"  >
+            <ItemTemplate>
+                
+                <h5>Usuario: <%#Eval("nombreDeUsuario")%> </h5>
+                <p>Nombre: <%#Eval("nombre")%> </p>
+                  <p>Apellido: <%#Eval("apellido")%> </p>
+                <p>Dni: <%#Eval("dni")%> </p>
+             <p>Email: <%#Eval("email")%> </p>
+                <p>Numero de telefono: <%#Eval("nroTelefono")%> </p>
+                   
+             <asp:Button ID="btnModificar" CssClass="btn btn-primary" Text="Modificar datos" Onclick="btnModificar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idModificar" runat="server" Enabled ="false"  />
+             <asp:Button ID="btnEliminar" CssClass="btn btn-primary" Text="Eliminar usuario" Onclick="btnEliminar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idEliminar" runat="server" Enabled ="false" />
+                    
+                    </div>
+                
+            </ItemTemplate>
+        </asp:Repeater>
+            
+            </div>
+           
+
+
+
+</asp:Content>

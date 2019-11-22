@@ -25,9 +25,15 @@ namespace TPC_RodriguezChristian
         {
     
             if (!Page.IsPostBack)
-            { 
+            {
+             
             rptOutter.DataSource = compraPendienteNegocio.listar();
             rptOutter.DataBind();
+                if(rptOutter.Items.Count == 0)
+                {
+                    Label1.Visible = true;
+
+                }
         }
 
         }

@@ -8,6 +8,6 @@ namespace Dominio
 {
     public class Administrador : Usuario
     {
-        public bool estado { get; set; }
+        public bool estadoAdmin { get; set; }
     }
 }

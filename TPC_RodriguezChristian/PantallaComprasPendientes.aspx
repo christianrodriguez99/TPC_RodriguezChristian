@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="text-center">Lista compras Pendientes</h1>
 
-
+    <asp:Label ID="Label1" runat="server" Text="No tienes compras pendientes" Visible="false"  ></asp:Label>
        
         <div class=" style="border:1px solid #808080 ;box-shadow: 0px 2px 5px #000000;">
       <asp:Repeater runat="server" ID="rptOutter"  >

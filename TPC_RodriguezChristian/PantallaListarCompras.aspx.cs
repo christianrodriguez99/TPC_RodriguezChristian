@@ -18,6 +18,11 @@ namespace TPC_RodriguezChristian
             string usuario = Session["nombreDeUsuario"].ToString();
             rptOutter.DataSource = compraNegocio.listarPorNombre(usuario);
             rptOutter.DataBind();
+            if (rptOutter.Items.Count == 0)
+            {
+                Label1.Visible = true;
+
+            }
         }
     }
 }

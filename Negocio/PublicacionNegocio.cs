@@ -62,16 +62,17 @@ namespace Negocio
             try
             {
 
-                datos.setearQuery("insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario)values(@titulo,@descripcion,@urlImagen,@stock,@precio,@idMarca,@idCategoria,@idUsuario)");
+                datos.setearQuery("insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,estado,idMarca,idCategoria,idUsuario,estadoProducto)values(@titulo,@descripcion,@urlImagen,@stock,@precio,@estado,@idMarca,@idCategoria,@idUsuario,@estadoProducto)");
                 datos.agregarParametro("@titulo", Publicacion.titulo);
                 datos.agregarParametro("@descripcion", Publicacion.descripcion);
                 datos.agregarParametro("@urlImagen", Publicacion.urlImagen);
                 datos.agregarParametro("@stock", Publicacion.stock);
                 datos.agregarParametro("@precio", Publicacion.precio);
-                datos.agregarParametro("@estado", true);
+                datos.agregarParametro("@estado", Publicacion.estado);
                 datos.agregarParametro("@idmarca", Publicacion.marca.id);
                 datos.agregarParametro("@idcategoria", Publicacion.categoria.id);
                 datos.agregarParametro("@idusuario", Publicacion.usuario.id);
+                datos.agregarParametro("@estadoProducto", Publicacion.estadoProducto);
                 datos.ejecutarAccion();
 
             }
@@ -139,6 +140,7 @@ namespace Negocio
                     aux.stock = datos.lector.GetInt32(4);
                     aux.precio = datos.lector.GetDecimal(5);
                     aux.estado = datos.lector.GetBoolean(10);
+                    aux.estadoProducto = datos.lector.GetString(11);
                     
                   
                     lista.Add(aux);

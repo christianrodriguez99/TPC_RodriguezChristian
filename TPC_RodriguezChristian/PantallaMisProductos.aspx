@@ -4,7 +4,7 @@
 
      <h1 class="text-center">Mis Publicaciones</h1>
 
-
+           <asp:Label ID="Label1" runat="server" Text="No tienes publicaciones activas" Visible="false"  ></asp:Label>
        
         <div class=" style="border:1px solid #808080 ;box-shadow: 0px 2px 5px #000000;">
       <asp:Repeater runat="server" ID="rptOutter"  >
@@ -17,7 +17,7 @@
                   <p class="card-text">Stock: <%#Eval("stock")%> </p>
       
                    
-             <asp:Button ID="btnModificar" CssClass="btn btn-primary" Text="Modificar publicacion" Onclick="btnModificar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idModificar" runat="server"  />
+             <asp:Button ID="btnModificar" CssClass="btn btn-primary" Text="Modificar publicacion" Onclick="btnModificar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idModificar" runat="server" Enabled ="false"  />
              <asp:Button ID="btnEliminar" CssClass="btn btn-primary" Text="Eliminar publicacion" Onclick="btnEliminar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idEliminar" runat="server"  />
                     
                     </div>
