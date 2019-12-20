@@ -15,23 +15,14 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="SegundaPantalla.aspx">GoShop</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="PantallaListarPublicaciones.aspx">Listado Publicaciones </a>
-                </li>
-                  
-            </ul>
+    <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="SegundaPantalla">
+    <img src="https://data.apksum.com/b5/my.com.goshop.app/2.0.3/icon.png" width="80" height="80" alt="">
+  </a>
+</nav>
 <%--            <span class="navbar-text">Navbar text with an inline element
             </span>--%>
-        </div>
-    </nav>
-
+      
     <form id="form1" runat="server">
         <div>
             <%--<a class="nav-link" runat="server" href="~/Index">Index</a>--%>

@@ -12,17 +12,94 @@ namespace TPC_RodriguezChristian
     public partial class PantallaListarProductos : System.Web.UI.Page
     {
         public List<Publicacion> listaPublicacion { get; set; }
+        public List<Marca> listaMarcas { get; set; }
+        public List<Categoria> listaCategorias { get; set; }
+        MarcaNegocio marcaNegocio = new MarcaNegocio();
+        CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
         PublicacionNegocio publicacionNegocio = new PublicacionNegocio();
-        
+
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-        
-            rptOutter.DataSource = publicacionNegocio.listar();
-            rptOutter.DataBind();
+
+            if (!IsPostBack)
+            {
+                rptOutter.DataSource = publicacionNegocio.listar();
+                rptOutter.DataBind();
+                if (rptOutter.Items.Count == 0)
+                {
+                    Label1.Visible = true;
+
+                }
+                listaMarcas = marcaNegocio.listar();
+                cboMarcas.DataSource = listaMarcas;
+                cboMarcas.DataTextField = "nombre";
+                cboMarcas.DataValueField = "id";
+                cboMarcas.DataBind();
+
+                listaCategorias = categoriaNegocio.listar();
+                cboCategorias.DataSource = listaCategorias;
+                cboCategorias.DataTextField = "nombre";
+                cboCategorias.DataValueField = "id";
+                cboCategorias.DataBind();
+
+            }
 
         }
 
-     
+        protected void txtBusquedaxNombre_TextChanged(object sender, EventArgs e)
+        {
+
+            List<Publicacion> listaFiltrada;
+            listaPublicacion = publicacionNegocio.listar();
+            txtBusquedaxNombre = ((TextBox)(sender));
+            try
+            {
+                if (txtBusquedaxNombre.Text == "")
+                {
+                    listaFiltrada = listaPublicacion;
+                }
+                else
+                {
+                    listaFiltrada = listaPublicacion.FindAll(k => k.titulo.ToLower().Contains(txtBusquedaxNombre.Text.ToLower()));
+                }
+                rptOutter.DataSource = listaFiltrada;
+                rptOutter.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+          
+        }
+
+        protected void cboMarcas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void cboCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

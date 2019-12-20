@@ -15,19 +15,27 @@ namespace TPC_RodriguezChristian
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usuario = Session["nombreDeUsuario"].ToString();
-            rptOutter.DataSource = usuarioNegocio.listarPorNombre(usuario);
-            rptOutter.DataBind();
+            if (!Page.IsPostBack)
+            {
+                string usuario = Session["nombreDeUsuario"].ToString();
+                rptOutter.DataSource = usuarioNegocio.listarPorNombre(usuario);
+                rptOutter.DataBind();
+            }
+
         }
 
-        protected void btnModificar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
+            var idSeleccionado = ((Button)sender).CommandArgument;
+            if (((Button)sender).CommandName == "idEliminar")
+            {
+                int id = Convert.ToInt32(((Button)sender).CommandArgument);
+                usuarioNegocio.eliminar(id);
+                Session["nombreDeUsuario"] = null;
+                Response.Redirect("Login.aspx");
 
+            }
         }
     }
 }

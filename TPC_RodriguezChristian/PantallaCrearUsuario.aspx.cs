@@ -34,6 +34,8 @@ namespace TPC_RodriguezChristian
                 usuario.apellido = txtApellido.Text;
                 usuario.nombre = txtNombre.Text;
                 usuario.email = txtEmail.Text;
+                usuario.estado = true;
+            usuario.administrador = false;
 
 
 

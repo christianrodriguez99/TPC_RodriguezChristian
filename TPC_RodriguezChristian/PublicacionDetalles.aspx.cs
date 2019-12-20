@@ -6,6 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using MercadoPago;
+using MercadoPago.Resources;
+using MercadoPago.DataStructures.Payment;
+using MercadoPago.Common;
+
+
 
 namespace TPC_RodriguezChristian
 {
@@ -15,7 +21,6 @@ namespace TPC_RodriguezChristian
         public PublicacionNegocio publicacionNegocio = new PublicacionNegocio();
         public Usuario usuario = new Usuario();
         public UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-        public Producto producto = new Producto();
         public Venta venta = new Venta();
         public VentaNegocio ventaNegocio = new VentaNegocio();
         public Compra compra = new Compra();
@@ -134,6 +139,7 @@ namespace TPC_RodriguezChristian
                 }
                 btnSiguiente.Text = "Finalizar compra";
                 txtCantidad.Visible = false;
+
                 
             }
 

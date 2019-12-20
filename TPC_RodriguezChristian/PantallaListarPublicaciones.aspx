@@ -3,7 +3,13 @@
 
 <asp:Content ID="PantallaListarPublicaciones" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-     <h1 class="text-center">Lista Publicaciones</h1>
+
+    <asp:Label ID="Label1" runat="server" Text="No hay productos" Visible="false"  ></asp:Label>
+       <asp:Label ID="lblBuscar" runat="server" Text="Buscar: "></asp:Label>
+       <asp:TextBox ID="txtBusquedaxNombre" runat="server" AutoPostBack="true" OnTextChanged="txtBusquedaxNombre_TextChanged"></asp:TextBox>
+<asp:DropDownList ID="cboMarcas" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboMarcas_SelectedIndexChanged">
+
+</asp:DropDownList> <asp:DropDownList ID="cboCategorias" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboCategorias_SelectedIndexChanged"></asp:DropDownList>
 
 
        

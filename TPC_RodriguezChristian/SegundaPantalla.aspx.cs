@@ -19,7 +19,12 @@ namespace TPC_RodriguezChristian
         {
             if ((string)Session["nombreDeUsuario"] == null)
                 Response.Redirect("Login.aspx");
-
+            string username = Session["nombreDeUsuario"].ToString();
+            bool validarAdmin = usuarioNegocio.obteneradministradorPorSession(username);
+            if(validarAdmin==true)
+            {
+                btnAdministrador.Visible = true;
+            }
         }
 
         protected void btnCargar_Click(object sender, EventArgs e)
@@ -34,7 +39,15 @@ namespace TPC_RodriguezChristian
         {
             Response.Redirect("PantallaPerfil");
         }
-    
 
+        protected void btnAdministrador_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PantallaAdministrador.aspx");
+        }
+
+        protected void btnNotificaciones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PantallaNotificacion.aspx");
+        }
     }
 }

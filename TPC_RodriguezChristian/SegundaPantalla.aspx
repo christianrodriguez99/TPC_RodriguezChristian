@@ -7,6 +7,8 @@
     <asp:Button ID="btnCargarPublicacion" runat="server" Text="Cargar nueva publicacion" OnClick="btnCargar_Click" class="btn btn-primary btn-sm"  />
     <asp:Button ID="btnListar" runat="server" Text="Listar productos" OnClick="btnListar_Click" class="btn btn-primary btn-sm" />
     <asp:Button ID="btnPerfil" runat="server" Text="Mi perfil" OnClick="btnPerfil_Click" class="btn btn-primary btn-sm" />
+            <asp:Button ID="btnNotificaciones" runat="server" Text="Notificaciones" Onclick="btnNotificaciones_Click" class="btn btn-primary btn-sm"/>
+            <asp:Button ID="btnAdministrador" runat="server" Text="Administrador" Visible="false" OnClick="btnAdministrador_Click" class="btn btn-primary btn-sm"/>
             </div>
           </div>
     </asp:Content>

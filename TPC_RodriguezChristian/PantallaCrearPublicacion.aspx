@@ -27,10 +27,10 @@
         <asp:DropDownList ID="cboEstados" runat="server"></asp:DropDownList>
    
         <asp:Label ID="lblMarca" runat="server" Text="Marca"></asp:Label>
-        <asp:DropDownList ID="cboMarcas" runat="server" ></asp:DropDownList>
+        <asp:DropDownList ID="cboMarcas" runat="server" OnSelectedIndexChanged="cboMarcas_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
     
         <asp:Label ID="lblCategoria" runat="server" Text="Categoria"></asp:Label>
-        <asp:DropDownList ID="cboCategorias" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="cboCategorias" runat="server" OnSelectedIndexChanged="cboCategorias_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
     </div>
         </div>
     <div style="margin-left:30px">
@@ -38,7 +38,22 @@
     <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="btn btn-primary"/>
       
     </div>
-    
+     
+    <asp:Label ID="lblAgregarCategoria" runat="server" Text="Solicitud para agregar categoria con nombre:" Visible="false"></asp:Label>
+    <asp:TextBox ID="txtNuevaCategoria" runat="server" Visible="false" ></asp:TextBox>
+    <asp:Button ID="btnAgregarCategoria" runat="server" Text="Enviar solicitud" CssClass="btn btn-primary" OnClick="btnAgregarCategoria_Click" Visible="false"/>
+     <asp:Label ID="lblAgregarCategoriaExito" runat="server" Visible="false" Text="La categoria ha sido solicitada con exito, por favor espere la respuesta de un administrador" CssClass="alert-success"></asp:Label>
+     <asp:Label ID="lblAgregarCategoriaError" runat="server" Visible="false" Text="El nombre de categoria ya ha sido solicitado o ya existe" CssClass="alert-warning"></asp:Label>      
+
+
+    <asp:Label ID="lblAgregarMarca" runat="server" Text="Solicitud para agregar marca con nombre:" Visible="false" ></asp:Label>
+    <asp:TextBox ID="txtNuevaMarca" runat="server" Visible="false" ></asp:TextBox>
+    <asp:Button ID="btnAgregarMarca" runat="server" Text="Enviar solicitud" CssClass="btn btn-primary" OnClick="btnAgregarMarca_Click" Visible="false"/>
+     <asp:Label ID="lblAgregarMarcaExito" runat="server" Visible="false" Text="La marca ha sido solicitada con exito, por favor espere la respuesta de un administrador" CssClass="alert-success" role="alert"></asp:Label>
+     <asp:Label ID="lblAgregarMarcaError" runat="server" Visible="false" Text="El nombre de marca ya ha sido solicitado o ya existe" CssClass="alert-warning" role="alert"></asp:Label>
+           
+
+            
 
     </asp:Content>
 

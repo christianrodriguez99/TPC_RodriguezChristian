@@ -16,8 +16,7 @@
              <p>Email: <%#Eval("email")%> </p>
                 <p>Numero de telefono: <%#Eval("nroTelefono")%> </p>
                    
-             <asp:Button ID="btnModificar" CssClass="btn btn-primary" Text="Modificar datos" Onclick="btnModificar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idModificar" runat="server" Enabled ="false"  />
-             <asp:Button ID="btnEliminar" CssClass="btn btn-primary" Text="Eliminar usuario" Onclick="btnEliminar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idEliminar" runat="server" Enabled ="false" />
+             <asp:Button ID="btnEliminar" CssClass="btn btn-primary" Text="Eliminar usuario" Onclick="btnEliminar_Click" CommandArgument='<%#Eval("id")%>' CommandName="idEliminar" runat="server"  />
                     
                     </div>
                 

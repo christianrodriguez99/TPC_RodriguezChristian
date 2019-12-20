@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
-using System.Data.SqlClient;
 
 namespace Negocio
 {
@@ -15,9 +14,12 @@ namespace Negocio
                 AccesoDatos datos = new AccesoDatos();
                 try
                 {
-                    datos.setearQuery("delete from Usuarios where id =" + id);
-                    datos.ejecutarAccion();
-                }
+                datos.setearQuery("Update Usuarios set estado=0 Where id=@Id");
+                datos.agregarParametro("@estado", false);
+                datos.agregarParametro("@Id", id);
+
+                datos.ejecutarAccion();
+            }
                 catch (Exception ex)
                 {
                     throw ex;
@@ -44,9 +46,6 @@ namespace Negocio
                     return false;
                 }
 
-
-
-
             }
 
                 catch (Exception ex)
@@ -63,7 +62,7 @@ namespace Negocio
             try
             {
 
-                datos.setearQuery("select clave from Usuarios where nombreDeUsuario = @nombreDeUsuario");
+                datos.setearQuery("select clave from Usuarios where nombreDeUsuario = @nombreDeUsuario and estado= 1");
                 datos.agregarParametro("@nombreDeUsuario", nombreUsuario);
                 datos.agregarParametro("@clave", clave);
                 datos.conexion.Open();
@@ -74,6 +73,7 @@ namespace Negocio
                     string password = Convert.ToString(resultado);
                     if (password == clave)
                     {
+                       
                         return true;
                     }
 
@@ -105,9 +105,6 @@ namespace Negocio
                 datos.ejecutarLector();
                 datos.lector.Read();
                 resultado = datos.lector.GetInt32(0);
-
-
-
                 return resultado;
 
             }
@@ -120,9 +117,34 @@ namespace Negocio
                 datos.cerrarConexion();
                 datos = null;
             }
+        }
+
+        public bool obteneradministradorPorSession(string nombreDeUsuario)
+        {
 
 
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                bool resultado;
 
+                datos.setearQuery("select administrador from Usuarios where nombreDeUsuario = @nombreDeUsuario");
+                datos.agregarParametro("@nombreDeUsuario", nombreDeUsuario);
+                datos.ejecutarLector();
+                datos.lector.Read();
+                resultado = datos.lector.GetBoolean(0);
+                return resultado;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
         }
 
         public int obteneridVendedor(int idPublicacion)
@@ -195,7 +217,7 @@ namespace Negocio
 
             try
             {               
-                        datos.setearQuery("insert into Usuarios (nombreDeUsuario,clave,dni,nombre,apellido,email,telefono,estado)values(@nombreDeUsuario,@clave,@dni,@nombre,@apellido,@email,@telefono,@estado)");
+                        datos.setearQuery("insert into Usuarios (nombreDeUsuario,clave,dni,nombre,apellido,email,telefono,estado,administrador)values(@nombreDeUsuario,@clave,@dni,@nombre,@apellido,@email,@telefono,@estado,@administrador)");
                         datos.agregarParametro("@nombreDeUsuario", usuario.nombreDeUsuario);
                         datos.agregarParametro("clave", usuario.clave);
                         datos.agregarParametro("@dni", usuario.dni);
@@ -203,8 +225,9 @@ namespace Negocio
                         datos.agregarParametro("@apellido", usuario.apellido);
                         datos.agregarParametro("@email", usuario.email);
                         datos.agregarParametro("@telefono", usuario.nroTelefono);
-                        datos.agregarParametro("@estado", false);
-                        datos.ejecutarAccion();
+                        datos.agregarParametro("@estado", usuario.estado);
+                        datos.agregarParametro("@administrador", usuario.administrador);
+                datos.ejecutarAccion();
                  
             }
 
@@ -219,7 +242,7 @@ namespace Negocio
                 AccesoDatos datos = new AccesoDatos();
                 try
                 {
-                    datos.setearQuery("Update Usuarios set nombre=@Nombre Where id=@Id");
+                    datos.setearQuery("Update clave set clave=@clave Where nombreDeUsuario=@Usuario");
                     datos.agregarParametro("@Nombre", Usuario.nombre);
                     datos.agregarParametro("@Id", Usuario.id);
 
@@ -270,6 +293,7 @@ namespace Negocio
                         aux.apellido = datos.lector.GetString(5);
                         aux.email = datos.lector.GetString(6);
                         aux.nroTelefono = datos.lector.GetString(7);
+                    aux.estado = datos.lector.GetBoolean(8);
 
                         lista.Add(aux);
                     }

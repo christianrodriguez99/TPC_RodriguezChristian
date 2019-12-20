@@ -139,7 +139,9 @@
     <div class="form-group">
         <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
         <asp:TextBox ID="txtEmail"   ClientIDMode="Static" CssClass="form-control" runat="server" ></asp:TextBox>
+        <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie.</small>
         </div>
+     
 
     <div class="form-group">
              <asp:Label ID="lblTelefono"  Text="Telefono" runat="server"></asp:Label>

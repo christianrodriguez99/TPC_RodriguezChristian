@@ -73,3 +73,9 @@ C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_Ro
 C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\Negocio.dll
 C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\Dominio.pdb
 C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\Negocio.pdb
+C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\MercadoPago.dll
+C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\nunit.framework.dll
+C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\ObjectDumper.dll
+C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\MercadoPago.pdb
+C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\nunit.framework.pdb
+C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\nunit.framework.xml
