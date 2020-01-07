@@ -17,7 +17,10 @@ namespace TPC_RodriguezChristian
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+          if(!IsPostBack)
+            {
+                Session["nombreDeUsuario"] = null;
+            }
 
         }
         protected void btnCrear_Click(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace TPC_RodriguezChristian
                 {
 
                     Session["nombreDeUsuario"] = txtNombreDeUsuario.Text;
-                    Response.Redirect("SegundaPantalla.aspx");
+                    Response.Redirect("PantallaListarPublicaciones.aspx");
                 }
                 else
                 {

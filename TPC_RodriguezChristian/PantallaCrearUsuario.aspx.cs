@@ -25,7 +25,7 @@ namespace TPC_RodriguezChristian
     
         protected void btnCrear_Click(object sender, EventArgs e)
         {
-          
+            
 
                 int valido = 1;
                 Session["nombreDeUsuario"] = txtNombreDeUsuario.Text;
@@ -51,8 +51,8 @@ namespace TPC_RodriguezChristian
                 else
                 {
                     valido = 0;
-                    Session["Error" + Session.SessionID] = "El dni debe contener numeros";
-                    Response.Redirect("PantallaError.aspx?dni");
+             
+                    //Response.Redirect("PantallaError.aspx?dni");
 
 
                 }
@@ -75,8 +75,8 @@ namespace TPC_RodriguezChristian
                 else
                 {
                     valido = 0;
-                    Session["Error" + Session.SessionID] = "El telefono debe contener numeros";
-                    Response.Redirect("PantallaError.aspx");
+                    //Session["Error" + Session.SessionID] = "El telefono debe contener numeros";
+                    //Response.Redirect("PantallaError.aspx");
                 }
 
 
@@ -89,21 +89,46 @@ namespace TPC_RodriguezChristian
                 {
 
                     bool ok = UsuarioNegocio.verificar(usuario);
-                    if (ok == false)
+                    if (!ok)
                     {
                         UsuarioNegocio.agregar(usuario);
-                        Response.Redirect("Login.aspx");
+                      
                     }
                     else
                     {
-                        Session["Error" + Session.SessionID] = "El nombre de usuario ya esta en uso";
-                        Response.Redirect("PantallaError.aspx");
+                        //Session["Error" + Session.SessionID] = "El nombre de usuario ya esta en uso";
+                        //Response.Redirect("PantallaError.aspx");
                     }
                 }
 
             }
-        
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void txtNombreDeUsuario_TextChanged(object sender, EventArgs e)
+        {
+            
+            bool valido = UsuarioNegocio.checkearNombreUsuario(txtNombreDeUsuario.Text);
+            if (valido==true)
+            {
+
+                spancheck.Visible = true;
+                lblcheckUsuario.Text = "El usuario ya existe !";
 
 
+            }
+            else
+            {
+
+                spancheck.Visible = true;
+                lblcheckUsuario.Text = "El usuario esta disponible !";
+
+
+            }
+          
+        }
     }
 }

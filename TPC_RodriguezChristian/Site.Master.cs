@@ -13,5 +13,14 @@ namespace TPC_RodriguezChristian
         {
 
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Session["busqueda"] = txtBusquedaxNombre.Text;
+            Response.Redirect("PantallaListarPublicaciones.aspx");
+            
+        }
+
+
     }
 }

@@ -33,9 +33,6 @@ namespace TPC_RodriguezChristian
 
         }
 
-        protected void btnVolver_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("SegundaPantalla");
-        }
+
     }
 }

@@ -13,6 +13,15 @@ namespace TPC_RodriguezChristian {
     public partial class PantallaCrearUsuario {
         
         /// <summary>
+        /// frm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm frm;
+        
+        /// <summary>
         /// lblNombreDeUsuario control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,24 @@ namespace TPC_RodriguezChristian {
         protected global::System.Web.UI.WebControls.Label lblNombreDeUsuario;
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// txtNombreDeUsuario control.
         /// </summary>
         /// <remarks>
@@ -29,6 +56,24 @@ namespace TPC_RodriguezChristian {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreDeUsuario;
+        
+        /// <summary>
+        /// spancheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl spancheck;
+        
+        /// <summary>
+        /// lblcheckUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcheckUsuario;
         
         /// <summary>
         /// lblClave control.
@@ -146,5 +191,14 @@ namespace TPC_RodriguezChristian {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCrear;
+        
+        /// <summary>
+        /// btnVolver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVolver;
     }
 }

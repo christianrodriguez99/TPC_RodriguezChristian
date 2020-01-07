@@ -104,7 +104,7 @@ id int primary key identity(1,1),
 descripcion varchar(200) not null,
 idUsuario int foreign key references Usuarios(id)
 )
-insert into Usuarios(nombreDeUsuario,clave,dni,nombre,apellido,email,telefono,estado,administrador) Values ('Chris','33286489xd','41956008','Christian','Rodriguez','christiansrodriguez99@gmail.com','1145602785',1,1)
+insert into Usuarios(nombreDeUsuario,clave,dni,nombre,apellido,email,telefono,estado) Values ('Chris','33286489xd','41956008','Christian','Rodriguez','christiansrodriguez99@gmail.com','1145602785',1)
 go
 insert into Marcas(nombre,estado) Values ('HP',1)
 go
@@ -121,7 +121,16 @@ go
 insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idCategoria,idUsuario,estado,estadoProducto)values('Noteebook','Carasa','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',12,10000,1,1,1,1,1)
 go
 insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idCategoria,idUsuario,estado,estadoProducto)values('Deskotip','Baratita','https://http2.mlstatic.com/pc-de-escritorio-dell-i5-4gb-hd-1tb-win10-pro-vostro-oferta-para-uso-hogar-y-empresa-garantia-oficial-D_NQ_NP_895983-MLA31077531976_062019-O.webp',99,500,2,1,1,1,1)
---select * from Notificaciones
+go
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idCategoria,idUsuario,estado,estadoProducto)values('Noteebook','Carasa','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',12,10000,1,1,1,1,1)
+go
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idCategoria,idUsuario,estado,estadoProducto)values('Deskotip','Baratita','https://http2.mlstatic.com/pc-de-escritorio-dell-i5-4gb-hd-1tb-win10-pro-vostro-oferta-para-uso-hogar-y-empresa-garantia-oficial-D_NQ_NP_895983-MLA31077531976_062019-O.webp',99,500,2,1,1,1,1)
+go
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idCategoria,idUsuario,estado,estadoProducto)values('Noteebook','Carasa','https://intermediary-i.linio.com/p/a3014bbef3ee5fe69bd771ea43f00e1f-product.jpg',12,10000,1,1,1,1,1)
+go
+insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idCategoria,idUsuario,estado,estadoProducto)values('Deskotip','Baratita','https://http2.mlstatic.com/pc-de-escritorio-dell-i5-4gb-hd-1tb-win10-pro-vostro-oferta-para-uso-hogar-y-empresa-garantia-oficial-D_NQ_NP_895983-MLA31077531976_062019-O.webp',99,500,2,1,1,1,1)
+select * from Usuarios
+select * from Usuarios where nombreDeUsuario= 'chris'
 --SELECT n.id,n.descripcion,u.nombreDeUsuario FROM notificaciones AS n inner join Usuarios as u on n.idUsuario=u.id where u.nombreDeUsuario = 'franca'
 ----select mp.id,mp.nombre,mp.estado,u.nombreDeUsuario from MarcasPendientes as mp inner join Usuarios as u on mp.idUsuario = u.id
 --SELECT n.id,n.descripcion FROM Notificaciones AS n inner join Usuarios as u on n.id=u.id where n.id=u.id
@@ -137,10 +146,10 @@ insert into Publicaciones (titulo,descripcion,urlimagen,stock,precio,idMarca,idC
 --SELECT v.cantidad,v.fecha,p.id,p.titulo,v.precioTotal,ve.id as idvendedor,c.id FROM Ventas as v  inner join Publicaciones as p on v.idPublicacion=p.id inner join Usuarios as ve on ve.id = v.idUsuarioVendedor inner join Usuarios as c on c.id = v.idUsuarioComprador where c.nombreDeUsuario = 'chrispa'
 --SELECT c.cantidad,c.fecha,p.id,p.titulo,c.precioTotal,ve.id,co.id,ve.nombreDeUsuario FROM Compras as c  inner join Publicaciones as p on c.idPublicacion=p.id inner join Usuarios as ve on ve.id = c.idUsuarioVendedor inner join Usuarios as co on co.id = c.idUsuarioComprador where co.nombreDeUsuario = 'chrispa'
 --SELECT v.cantidad,v.fecha,p.id,p.titulo,v.precioTotal,ve.id,c.id,c.nombreDeUsuario FROM Ventas as v  inner join Publicaciones as p on v.idPublicacion=p.id inner join Usuarios as ve on ve.id = v.idUsuarioVendedor inner join Usuarios as c on c.id = v.idUsuarioComprador where ve.nombreDeUsuario = 'franca'
---use master
---go
---drop database DB_TPC
+use master
+go
+drop database DB_TPC
 
---delete from ComprasPendientes
+delete from ComprasPendientes
 
 

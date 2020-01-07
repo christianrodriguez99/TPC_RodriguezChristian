@@ -5,33 +5,44 @@
 
 
     <asp:Label ID="Label1" runat="server" Text="No hay productos" Visible="false"  ></asp:Label>
-       <asp:Label ID="lblBuscar" runat="server" Text="Buscar: "></asp:Label>
-       <asp:TextBox ID="txtBusquedaxNombre" runat="server" AutoPostBack="true" OnTextChanged="txtBusquedaxNombre_TextChanged"></asp:TextBox>
-<asp:DropDownList ID="cboMarcas" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboMarcas_SelectedIndexChanged">
-
-</asp:DropDownList> <asp:DropDownList ID="cboCategorias" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboCategorias_SelectedIndexChanged"></asp:DropDownList>
-
+     <%--  <asp:Label ID="lblBuscar" runat="server" Text="Buscar: "></asp:Label>
+       <asp:TextBox ID="txtBusquedaxNombre" runat="server" AutoPostBack="true" OnTextChanged="txtBusquedaxNombre_TextChanged"></asp:TextBox>--%>
+    <div class="dropdown text-right">
+<asp:DropDownList ID="cboMarcas" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboMarcas_SelectedIndexChanged" CssClass="btn btn-secondary dropdown-toggle"></asp:DropDownList>
+    <asp:DropDownList ID="cboCategorias" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboCategorias_SelectedIndexChanged" CssClass="btn btn-secondary dropdown-toggle"></asp:DropDownList>
+    </div>
 
        
-        <div class=" style="border:1px solid #808080 ;box-shadow: 0px 2px 5px #000000;">
+       <div class="container">
+       <div class="row">
       <asp:Repeater runat="server" ID="rptOutter"  >
-            <ItemTemplate>
-                <div class="card">
-                    <img src="<%#Eval("urlImagen") %>" class="card-img-top" alt="..." style="max-height:250px;max-width:250px">
-                    <div class="card-body">
-                <h5 class="card-title"><%#Eval("titulo")%> </h5>
-                <p class="card-text"><%#Eval("descripcion")%> </p>
-                    <p class="card-text"><%#Eval("estadoProducto")%> </p>
+            <ItemTemplate>        
+                      <div class="col-sm">
+                        <div class="card" style="width: 18rem;">
+                        <img src="<%#Eval("urlImagen") %>" class="card-img-top" alt="..." style="max-height:250px;max-width:250px">
+                         <div class="card-body">
+                         <h5 class="card-title"><%#Eval("titulo")%> </h5>
+                         <p class="card-text"><%#Eval("descripcion")%> </p>     
+                         <a class="btn btn-primary" href="PublicacionDetalles.aspx?id=<%#Eval("Id")%>">Detalles</a>
+                         </div>
+                        </div>
+                      </div>                         
+                    
+            </ItemTemplate>
+      </asp:Repeater>
+                        
+       </div>
+       </div>
+       
       
                    
-                    <a class="btn btn-primary" href="PublicacionDetalles.aspx?id=<%#Eval("Id")%>">Detalles</a>
                     
-                    </div>
+                    
+                   
                 
-            </ItemTemplate>
-        </asp:Repeater>
+           
             
-            </div>
+         
            
 
 

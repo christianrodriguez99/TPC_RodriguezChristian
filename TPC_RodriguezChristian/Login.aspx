@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Login.aspx.cs" Inherits="TPC_RodriguezChristian.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="TPC_RodriguezChristian.Login" %>
 
-<asp:Content ID="head" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+ <form id="frm" runat="server">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <div class="container-fluid">
         <div class="jumbotron" style="border:1px solid #808080 ;box-shadow: 0px 2px 5px #000000; margin-top: 30px;">
    
@@ -21,9 +22,10 @@
     <asp:Label ID="Label1" runat="server" Text="No tienes cuenta?"></asp:Label>
     <asp:Button ID="Button1" runat="server" Text="Crear Usuario" OnClick="btnCrear_Click" CssClass="btn btn-primary"/>
         </div>
+     </form>
    
 
-    </asp:Content>
+    
 
     
 

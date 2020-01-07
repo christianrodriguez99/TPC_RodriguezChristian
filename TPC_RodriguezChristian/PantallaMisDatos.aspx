@@ -2,7 +2,7 @@
 
 <asp:Content ID="PantallaListarMisProductos" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-     <h1 class="text-center">Mis Publicaciones</h1>
+     <h2 class="text-center"><u>Mis datos</u></h2>
 
     
         <div class=" style="border:1px solid #808080 ;box-shadow: 0px 2px 5px #000000;">

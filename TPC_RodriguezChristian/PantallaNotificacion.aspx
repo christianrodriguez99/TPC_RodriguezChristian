@@ -23,7 +23,6 @@
         </asp:Repeater>
             
             </div>
-    <asp:Button ID="btnVolver" runat="server" Text="Volver" Onclick="btnVolver_Click" CssClass="btn btn-primary" />
            
 
 

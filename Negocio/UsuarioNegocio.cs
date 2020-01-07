@@ -37,6 +37,7 @@ namespace Negocio
                 datos.agregarParametro("@nombreDeUsuario", usuario.nombreDeUsuario);
                 datos.conexion.Open();
                 Int32 count = Convert.ToInt32(datos.comando.ExecuteScalar());
+                
                 if (count > 0)
                 {
                     return true;
@@ -54,6 +55,36 @@ namespace Negocio
                 }
             
             }
+
+        public bool checkearNombreUsuario(string nombreDeUsuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            bool resultado = false;
+            try
+            {
+
+                datos.setearQuery("select * from Usuarios where nombreDeUsuario=@nombreDeUsuario");
+                datos.agregarParametro("@nombreDeUsuario", nombreDeUsuario);
+                datos.ejecutarLector();
+                datos.lector.Read();
+                if(datos.lector.HasRows)
+                {
+                    return true;
+                }
+
+                return resultado;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
+        }
 
         public bool verificarlogin(string nombreUsuario , string clave )
         {
@@ -90,6 +121,10 @@ namespace Negocio
             }
 
         }
+
+       
+
+            
 
         public int obteneridPorSession(string nombreDeUsuario)
         {
@@ -146,6 +181,9 @@ namespace Negocio
                 datos = null;
             }
         }
+
+      
+
 
         public int obteneridVendedor(int idPublicacion)
         {
@@ -313,4 +351,5 @@ namespace Negocio
             }
         }
     }
+
 

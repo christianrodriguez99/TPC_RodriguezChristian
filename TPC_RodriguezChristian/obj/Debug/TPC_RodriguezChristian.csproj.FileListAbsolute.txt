@@ -79,3 +79,4 @@ C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_Ro
 C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\MercadoPago.pdb
 C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\nunit.framework.pdb
 C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\nunit.framework.xml
+C:\Users\Christian\Desktop\TPC Rodriguez Christian\TPC_RodriguezChristian\TPC_RodriguezChristian\bin\AjaxControlToolkit.dll
