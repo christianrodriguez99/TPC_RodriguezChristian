@@ -7,10 +7,7 @@
     <asp:Label ID="Label1" runat="server" Text="No hay productos" Visible="false"  ></asp:Label>
      <%--  <asp:Label ID="lblBuscar" runat="server" Text="Buscar: "></asp:Label>
        <asp:TextBox ID="txtBusquedaxNombre" runat="server" AutoPostBack="true" OnTextChanged="txtBusquedaxNombre_TextChanged"></asp:TextBox>--%>
-    <div class="dropdown text-right">
-<asp:DropDownList ID="cboMarcas" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboMarcas_SelectedIndexChanged" CssClass="btn btn-secondary dropdown-toggle"></asp:DropDownList>
-    <asp:DropDownList ID="cboCategorias" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboCategorias_SelectedIndexChanged" CssClass="btn btn-secondary dropdown-toggle"></asp:DropDownList>
-    </div>
+
 
        
        <div class="container">

@@ -53,8 +53,13 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
         <asp:TextBox ID="txtBusquedaxNombre" runat="server" CssClass="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="cboMarcas" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboMarcas_SelectedIndexChanged" CssClass="btn btn-secondary dropdown-toggle"></asp:DropDownList>
+    <asp:DropDownList ID="cboCategorias" runat="server" AutoPostBack="true" OnSelectedIndexChanged="cboCategorias_SelectedIndexChanged" CssClass="btn btn-secondary dropdown-toggle"></asp:DropDownList>
      <%-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--%>
         <asp:Button ID="btnBuscar" CssClass="btn btn-outline-success my-2 my-sm-0" runat="server" Text="Buscar" OnClick="btnBuscar_Click"  />
+            <div class="dropdown text-right">
+
+    </div>
      <%-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
 
     </form>

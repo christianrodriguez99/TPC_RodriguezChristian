@@ -38,17 +38,7 @@ namespace TPC_RodriguezChristian
                     Label1.Visible = true;
 
                 }
-                listaMarcas = marcaNegocio.listar();
-                cboMarcas.DataSource = listaMarcas;
-                cboMarcas.DataTextField = "nombre";
-                cboMarcas.DataValueField = "id";
-                cboMarcas.DataBind();
-
-                listaCategorias = categoriaNegocio.listar();
-                cboCategorias.DataSource = listaCategorias;
-                cboCategorias.DataTextField = "nombre";
-                cboCategorias.DataValueField = "id";
-                cboCategorias.DataBind();
+                
 
                 if (((string)Session["busqueda"] != null))
                 {
@@ -103,36 +93,6 @@ namespace TPC_RodriguezChristian
           
         //}
 
-        protected void cboMarcas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-            try
-            {
-                List<Publicacion> listaFiltrada;
-                listaPublicacion = publicacionNegocio.listar();
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        protected void cboCategorias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-            try
-            {
-                List<Publicacion> listaFiltrada;
-                listaPublicacion = publicacionNegocio.listar();
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+   
     }
 }

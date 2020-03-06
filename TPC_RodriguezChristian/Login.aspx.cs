@@ -42,8 +42,7 @@ namespace TPC_RodriguezChristian
                 }
                 else
                 {
-                    Session["Error" + Session.SessionID] = "Usuario y/o contraseña incorrecta";
-                    Response.Redirect("PantallaError.aspx");
+                    lblIncorrecto.Visible = true;
                 }
             }
 

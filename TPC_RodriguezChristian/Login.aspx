@@ -15,6 +15,7 @@
 
             </div>
          </div>
+     <asp:Label ID="lblIncorrecto" runat="server" Text="Nombre y/o contraseña incorrectos" CssClass="alert-warning" Visible="false"></asp:Label>
     
     <br />
     <br />
