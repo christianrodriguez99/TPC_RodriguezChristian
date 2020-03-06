@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 
+
 namespace Negocio
 {
     public class UsuarioNegocio
@@ -56,35 +57,7 @@ namespace Negocio
             
             }
 
-        public bool checkearNombreUsuario(string nombreDeUsuario)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            bool resultado = false;
-            try
-            {
-
-                datos.setearQuery("select * from Usuarios where nombreDeUsuario=@nombreDeUsuario");
-                datos.agregarParametro("@nombreDeUsuario", nombreDeUsuario);
-                datos.ejecutarLector();
-                datos.lector.Read();
-                if(datos.lector.HasRows)
-                {
-                    return true;
-                }
-
-                return resultado;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexion();
-                datos = null;
-            }
-        }
+        
 
         public bool verificarlogin(string nombreUsuario , string clave )
         {
@@ -349,7 +322,39 @@ namespace Negocio
                 }
 
             }
+
+       
+        public bool checkearNombreUsuario(string nombreDeUsuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            bool resultado = false;
+            try
+            {
+
+                datos.setearQuery("select * from Usuarios where nombreDeUsuario=@nombreDeUsuario");
+                datos.agregarParametro("@nombreDeUsuario", nombreDeUsuario);
+                datos.ejecutarLector();
+                datos.lector.Read();
+                if (datos.lector.HasRows)
+                {
+                    return true;
+                }
+
+                return resultado;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+                datos = null;
+            }
         }
+        
+    }
     }
 
 

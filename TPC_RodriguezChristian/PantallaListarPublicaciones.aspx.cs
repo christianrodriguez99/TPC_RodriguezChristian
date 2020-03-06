@@ -105,12 +105,11 @@ namespace TPC_RodriguezChristian
 
         protected void cboMarcas_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
             try
             {
-              
-                
-
-
+                List<Publicacion> listaFiltrada;
+                listaPublicacion = publicacionNegocio.listar();
 
             }
             catch (Exception)
@@ -122,8 +121,11 @@ namespace TPC_RodriguezChristian
 
         protected void cboCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             try
             {
+                List<Publicacion> listaFiltrada;
+                listaPublicacion = publicacionNegocio.listar();
 
             }
             catch (Exception)

@@ -31,7 +31,7 @@ namespace TPC_RodriguezChristian
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-
+            var productoSeleccionado = ((Button)sender).CommandArgument;
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)

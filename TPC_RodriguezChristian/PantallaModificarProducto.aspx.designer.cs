@@ -10,7 +10,7 @@
 namespace TPC_RodriguezChristian {
     
     
-    public partial class PantallaCrearPublicacion {
+    public partial class PantallaModificarProducto {
         
         /// <summary>
         /// lblTitulo control.
@@ -175,22 +175,13 @@ namespace TPC_RodriguezChristian {
         protected global::System.Web.UI.WebControls.DropDownList cboCategorias;
         
         /// <summary>
-        /// btnCrear control.
+        /// btnModificar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrear;
-        
-        /// <summary>
-        /// btnVolver control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVolver;
+        protected global::System.Web.UI.WebControls.Button btnModificar;
         
         /// <summary>
         /// lblExitoPublicacion control.
@@ -200,95 +191,5 @@ namespace TPC_RodriguezChristian {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblExitoPublicacion;
-        
-        /// <summary>
-        /// lblAgregarCategoria control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgregarCategoria;
-        
-        /// <summary>
-        /// txtNuevaCategoria control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNuevaCategoria;
-        
-        /// <summary>
-        /// btnAgregarCategoria control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarCategoria;
-        
-        /// <summary>
-        /// lblAgregarCategoriaExito control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgregarCategoriaExito;
-        
-        /// <summary>
-        /// lblAgregarCategoriaError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgregarCategoriaError;
-        
-        /// <summary>
-        /// lblAgregarMarca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgregarMarca;
-        
-        /// <summary>
-        /// txtNuevaMarca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNuevaMarca;
-        
-        /// <summary>
-        /// btnAgregarMarca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarMarca;
-        
-        /// <summary>
-        /// lblAgregarMarcaExito control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgregarMarcaExito;
-        
-        /// <summary>
-        /// lblAgregarMarcaError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgregarMarcaError;
     }
 }

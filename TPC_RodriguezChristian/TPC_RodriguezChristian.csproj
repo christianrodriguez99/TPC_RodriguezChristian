@@ -158,6 +158,7 @@
     <Content Include="PantallaListarVentas.aspx" />
     <Content Include="PantallaMisDatos.aspx" />
     <Content Include="PantallaMisProductos.aspx" />
+    <Content Include="PantallaModificarProducto.aspx" />
     <Content Include="PantallaNotificacion.aspx" />
     <Content Include="PantallaPerfil.aspx" />
     <Content Include="PublicacionDetalles.aspx" />
@@ -291,6 +292,13 @@
     <Compile Include="PantallaMisProductos.aspx.designer.cs">
       <DependentUpon>PantallaMisProductos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PantallaModificarProducto.aspx.cs">
+      <DependentUpon>PantallaModificarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PantallaModificarProducto.aspx.designer.cs">
+      <DependentUpon>PantallaModificarProducto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PantallaNotificacion.aspx.cs">
       <DependentUpon>PantallaNotificacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -330,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Img\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

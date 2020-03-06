@@ -23,6 +23,7 @@
         </asp:Repeater>
             
             </div>
+     <asp:Button ID="btnAdministrador" runat="server" Text="Administrador" Visible="false" OnClick="btnAdministrador_Click" class="btn btn-primary btn-sm"/>
            
 
 

@@ -12,6 +12,7 @@ namespace TPC_RodriguezChristian
     public partial class PantallaNotificiacion : System.Web.UI.Page
     {
         NotificacionNegocio notificacionNegocio = new NotificacionNegocio();
+        UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,15 +25,20 @@ namespace TPC_RodriguezChristian
                     Label1.Visible = true;
 
                 }
+                bool validarAdmin = usuarioNegocio.obteneradministradorPorSession(usuario);
+                if (validarAdmin == true)
+                {
+                    btnAdministrador.Visible = true;
+                }
             }
 
             }
 
-        protected void btnBorrar_Click(object sender, EventArgs e)
+       
+
+        protected void btnAdministrador_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("PantallaAdministrador.aspx");
         }
-
-
     }
 }

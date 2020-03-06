@@ -25,11 +25,13 @@
         <div class="form-group">
           <asp:Label ID="lblPrecio" runat="server" Text="Precio"></asp:Label>
           <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblErrorPrecio" runat="server" Text="El precio debe contener numeros" CssClass="alert-warning" Visible ="false"></asp:Label>
             </div>
 
         <div class="form-group">
         <asp:Label ID="lblStock" runat="server" Text="Cantidad"></asp:Label>
         <asp:TextBox ID="txtStock" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:Label ID="lblErrorStock" runat="server" Text="El stock debe contener numeros" CssClass="alert-warning" Visible ="false"></asp:Label>
             </div>
     
         <div class="form-group">
@@ -52,6 +54,10 @@
     <asp:Button ID="btnCrear" runat="server" Text="Crear publicacion" OnClick="btnCrear_Click" CssClass="btn btn-primary"/>
     <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="btn btn-primary"/>
       
+    </div>
+    <div>
+        <asp:Label ID="lblExitoPublicacion" runat="server" Text="La publicacion ha sido creada con exito" CssClass="alert-success" Visible="false"></asp:Label>
+
     </div>
      
     <asp:Label ID="lblAgregarCategoria" runat="server" Text="Solicitud para agregar categoria con nombre:" Visible="false"></asp:Label>

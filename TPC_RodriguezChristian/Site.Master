@@ -40,7 +40,7 @@
 
           <a class="dropdown-item" href="PantallaListarCompras.aspx">Mis compras</a>
           <a class="dropdown-item" href="PantallaListarVentas.aspx">Mis ventas</a>
-            <a class="dropdown-item" href="PantallaListarComprasPendientes.aspx">Mis ventas pendientes de pago</a>
+            <a class="dropdown-item" href="PantallaComprasPendientes.aspx">Mis ventas pendientes de pago</a>
             <a class="dropdown-item" href="PantallaMisProductos.aspx">Mis publicaciones</a>
             <a class="dropdown-item" href="PantallaMisDatos.aspx">Mis datos</a>
           <div class="dropdown-divider"></div>
@@ -48,14 +48,15 @@
         </div>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="PantallaNotificacion.aspx">Notificaciones</a>
+          <a class="nav-link" href="PantallaNotificacion.aspx">Notificaciones<span class="badge"></span></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
         <asp:TextBox ID="txtBusquedaxNombre" runat="server" CssClass="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" runat="server"></asp:TextBox>
      <%-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--%>
-        <asp:Button ID="btnBuscar" CssClass="btn btn-outline-success my-2 my-sm-0" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
+        <asp:Button ID="btnBuscar" CssClass="btn btn-outline-success my-2 my-sm-0" runat="server" Text="Buscar" OnClick="btnBuscar_Click"  />
      <%-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
+
     </form>
   </div>
 </nav>

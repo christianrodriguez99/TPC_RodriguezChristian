@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
+using System.Web.Services;
 
 namespace TPC_RodriguezChristian
 {
@@ -91,6 +92,7 @@ namespace TPC_RodriguezChristian
                     bool ok = UsuarioNegocio.verificar(usuario);
                     if (!ok)
                     {
+                    lblExitoUsuario.Visible = true;
                         UsuarioNegocio.agregar(usuario);
                       
                     }
@@ -101,34 +103,41 @@ namespace TPC_RodriguezChristian
                     }
                 }
 
-            }
+        }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");
         }
 
+        
+        
         protected void txtNombreDeUsuario_TextChanged(object sender, EventArgs e)
-        {
-            
+        {   
             bool valido = UsuarioNegocio.checkearNombreUsuario(txtNombreDeUsuario.Text);
             if (valido==true)
             {
 
                 spancheck.Visible = true;
+                lblcheckUsuario.CssClass = "alert-warning";
                 lblcheckUsuario.Text = "El usuario ya existe !";
-
-
             }
             else
             {
-
                 spancheck.Visible = true;
+                lblcheckUsuario.CssClass = "alert-success";
                 lblcheckUsuario.Text = "El usuario esta disponible !";
-
-
-            }
-          
+            }    
         }
+
+        [WebMethod]
+        public static bool verificarUsuario(string nombre)
+        {
+            UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+            bool valido = usuarioNegocio.checkearNombreUsuario(nombre);
+            return valido;
+        }
+
+
     }
 }

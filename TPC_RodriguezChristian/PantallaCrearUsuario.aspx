@@ -101,6 +101,21 @@
         }
 
         </script>
+<script>
+    function verificarNombreDeUsuario() {
+        var spancheck = document.getElementById('<%=spancheck.ClientID %>')
+        var usuario = document.getElementById('<%=txtNombreDeUsuario.ClientID %>').value;
+        var valido = Page.Methods.verificarUsuario(usuario);
+        
+        if (valido == true)
+        {
+          alert('Cannot process your request at the moment, please try later.');
+        }
+        else
+        {
+            alert('Cannot process your request at the moment, please try later.');
+        }
+</script>
 
 
 
@@ -113,14 +128,14 @@
       <div class="form-group">
         <asp:Label ID="lblNombreDeUsuario"  Text="Nombre de usuario" runat="server"></asp:Label>
     
-          <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+          <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
           <div> 
               <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                         <asp:TextBox ID="txtNombreDeUsuario" CssClass="form-control" runat="server" AutoPostBack="true" OnTextChanged="txtNombreDeUsuario_TextChanged"></asp:TextBox>
                     <span id="spancheck" runat="server" visible="false">
-                        <div class="alert alert-success" role="alert" ClientIDMode="static" id="miDiv">
- <asp:Label id="lblcheckUsuario" runat="server" Text="Label" ClientIDMode="static"></asp:Label>
+                        <div class="alert alert-warning" role="alert" id="miDiv">
+ <asp:Label id="lblcheckUsuario" runat="server" Text="Label" ></asp:Label>
 </div>
                         </span>
                  
@@ -173,17 +188,20 @@
    
    
 
-   <asp:Button ID="btnCrear"  Text="Aceptar" OnClientClick="return validar()" OnClick="btnCrear_Click" CssClass="btn btn-primary" runat="server" style="margin-left:30px"/>
+   <asp:Button ID="btnCrear"  Text="Aceptar" OnClientClick="return validar(); verificarNombreDeUsuario();" OnClick="btnCrear_Click" CssClass="btn btn-primary" runat="server" style="margin-left:30px"/>
 
    <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="btn btn-primary"/>
 
-
+                    <div>
+    <asp:Label ID="lblExitoUsuario" runat="server" Text="Usuario creado correctamente!" CssClass="alert-success" Visible="false"></asp:Label>
+</div>
                     </ContentTemplate>
                    </asp:UpdatePanel>
                   </div>     
               </div>      
         </div>
              </div >
+
      </form>
 
 

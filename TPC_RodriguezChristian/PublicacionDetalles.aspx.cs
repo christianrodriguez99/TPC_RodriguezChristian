@@ -124,7 +124,8 @@ namespace TPC_RodriguezChristian
                 
                 preciofinal = cantidad * publicacion.precio;
                 compraPendiente.precioTotal = preciofinal;
-                
+
+                lblCantidad.Visible = false;
                 Label1.Visible = true;
                 lblPrecioFinal.Text = preciofinal.ToString("F") + " por " + cantidad + " unidades";
                 lblPrecioFinal.Visible = true;

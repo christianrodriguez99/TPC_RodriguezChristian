@@ -24,6 +24,22 @@ namespace Negocio
             }
         }
 
+        public void eliminarxId(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearQuery("Update Publicaciones set estado=0 Where idUsuario=@Id");
+                datos.agregarParametro("@Id", id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public int obtenerstockActual(int idPublicacion)
         {
 
@@ -83,7 +99,36 @@ namespace Negocio
             }
         }
 
-    
+        public void modificar(Publicacion Publicacion, int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+
+                datos.setearQuery("update Publicaciones set titulo = @titulo,descripcion =@descripcion,urlimagen=@urlImagen,stock=@stock,precio=@precio,estado=@estado,idMarca=@idMarca,idCategoria=@idCategoria,idUsuario=@idUsuario,estadoProducto=@estadoProducto where id = @id");
+                datos.agregarParametro("@titulo", Publicacion.titulo);
+                datos.agregarParametro("@descripcion", Publicacion.descripcion);
+                datos.agregarParametro("@urlImagen", Publicacion.urlImagen);
+                datos.agregarParametro("@stock", Publicacion.stock);
+                datos.agregarParametro("@precio", Publicacion.precio);
+                datos.agregarParametro("@estado", Publicacion.estado);
+                datos.agregarParametro("@idmarca", Publicacion.marca.id);
+                datos.agregarParametro("@idcategoria", Publicacion.categoria.id);
+                datos.agregarParametro("@idusuario", Publicacion.usuario.id);
+                datos.agregarParametro("@estadoProducto", Publicacion.estadoProducto);
+                datos.agregarParametro("@Id", id);
+                datos.ejecutarAccion();
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         public void modificarStock(int id, int stock)
         {

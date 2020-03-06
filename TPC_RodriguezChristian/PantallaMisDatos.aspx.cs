@@ -13,6 +13,7 @@ namespace TPC_RodriguezChristian
     {
         public List<Usuario> listaUsuario { get; set; }
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+        PublicacionNegocio publicacionNegocio = new PublicacionNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -21,7 +22,7 @@ namespace TPC_RodriguezChristian
                 rptOutter.DataSource = usuarioNegocio.listarPorNombre(usuario);
                 rptOutter.DataBind();
             }
-
+            
         }
 
 
@@ -32,10 +33,16 @@ namespace TPC_RodriguezChristian
             {
                 int id = Convert.ToInt32(((Button)sender).CommandArgument);
                 usuarioNegocio.eliminar(id);
+                publicacionNegocio.eliminarxId(id);
                 Session["nombreDeUsuario"] = null;
                 Response.Redirect("Login.aspx");
-
+               
             }
+        }
+
+        protected void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

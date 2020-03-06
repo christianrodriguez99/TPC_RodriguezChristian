@@ -4,12 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Negocio;
 using Dominio;
-
+using Negocio;
 namespace TPC_RodriguezChristian
 {
-    public partial class PantallaCrearPublicacion : System.Web.UI.Page
+    public partial class PantallaModificarProducto : System.Web.UI.Page
     {
         public Publicacion publicacion = new Publicacion();
         public MarcaPendiente marcaPendiente = new MarcaPendiente();
@@ -24,35 +23,37 @@ namespace TPC_RodriguezChristian
         CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
         PublicacionNegocio publicacionNegocio = new PublicacionNegocio();
         UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-
+        List<Publicacion> listaPublicacion;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
 
             try
             {
                 if (!IsPostBack)
                 {
-                    if(Session["nombreDeUsuario"] == null)
-                    Response.Redirect("Login.aspx");
+                    if (Session["nombreDeUsuario"] == null)
+                        Response.Redirect("Login.aspx");
 
                     listaMarcas = marcaNegocio.listar();
                     cboMarcas.DataSource = listaMarcas;
                     cboMarcas.DataTextField = "nombre";
-                    cboMarcas.DataValueField = "id";                  
+                    cboMarcas.DataValueField = "id";
                     cboMarcas.DataBind();
-                    cboMarcas.Items.Add("Agregar marca");
 
                     listaCategorias = categoriaNegocio.listar();
                     cboCategorias.DataSource = listaCategorias;
                     cboCategorias.DataTextField = "nombre";
-                    cboCategorias.DataValueField = "id";            
+                    cboCategorias.DataValueField = "id";
                     cboCategorias.DataBind();
-                    cboCategorias.Items.Add("Agregar categoria");
 
                     cboEstados.Items.Add("Nuevo");
                     cboEstados.Items.Add("Usado");
 
+                    
+                    //
+                    // int numeroPokemon = Convert.ToInt32(Session["NumeroPokemon" + Session.SessionID]);
+                   
 
                 }
             }
@@ -67,11 +68,13 @@ namespace TPC_RodriguezChristian
 
             }
 
-
         }
 
-        protected void btnCrear_Click(object sender, EventArgs e)
+        protected void btnModificar_Click(object sender, EventArgs e)
         {
+            listaPublicacion = publicacionNegocio.listar();
+            var publiSeleccionado = Convert.ToInt32(Request.QueryString["id"]);
+            publicacion = listaPublicacion.Find(J => J.id == publiSeleccionado);
             int valido = 1;
             string nombreDeUsuario = Session["nombreDeUsuario"].ToString();
             publicacion.titulo = txtTitulo.Text;
@@ -81,18 +84,18 @@ namespace TPC_RodriguezChristian
             publicacion.categoria.id = Convert.ToInt32(cboCategorias.SelectedItem.Value);
             publicacion.usuario = new Usuario();
             publicacion.usuario.id = usuarioNegocio.obteneridPorSession(nombreDeUsuario);
-            publicacion.descripcion = txtDescripcion.Text;       
-            if(txtImagen.Text=="")
+            publicacion.descripcion = txtDescripcion.Text;
+            if (txtImagen.Text == "")
             {
                 txtImagen.Text = "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg";
             }
             publicacion.urlImagen = txtImagen.Text;
             publicacion.estado = true;
-            
+
 
 
             //Precio
-      
+
             Decimal value = -1;
 
             if (decimal.TryParse(txtPrecio.Text, out value))
@@ -107,7 +110,7 @@ namespace TPC_RodriguezChristian
             }
 
 
-            if (value==1)
+            if (value == 1)
             {
                 publicacion.precio = Convert.ToDecimal(txtPrecio.Text);
             }
@@ -116,7 +119,7 @@ namespace TPC_RodriguezChristian
             //Stock
 
             int valor = -1;
-            
+
             if (int.TryParse(txtStock.Text, out valor))
             {
                 valor = 1;
@@ -136,7 +139,7 @@ namespace TPC_RodriguezChristian
 
             //Estado
 
-            if(cboEstados.SelectedValue=="Nuevo")
+            if (cboEstados.SelectedValue == "Nuevo")
             {
                 publicacion.estadoProducto = "Nuevo";
             }
@@ -144,97 +147,16 @@ namespace TPC_RodriguezChristian
             {
                 publicacion.estadoProducto = "Usado";
             }
-           
+
 
             if (valido == 1)
             {
                 lblExitoPublicacion.Visible = true;
-                publicacionNegocio.agregar(publicacion);
-            }
-
-        }
-        protected void btnVolver_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("SegundaPantalla.aspx");
-        }
-
-        protected void cboMarcas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cboMarcas.Text=="Agregar marca")
-            {
-                lblAgregarMarca.Visible = true;
-                txtNuevaMarca.Visible = true;
-                btnAgregarMarca.Visible = true;
-                
-            }
-        }
-
-        protected void cboCategorias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if(cboCategorias.Text=="Agregar categoria")
-            {
-                lblAgregarCategoria.Visible = true;
-                txtNuevaCategoria.Visible = true;
-                btnAgregarCategoria.Visible = true;
+                publicacionNegocio.modificar(publicacion,publiSeleccionado);
             }
 
         }
 
-        protected void btnAgregarCategoria_Click(object sender, EventArgs e)
-        {
-            string nombreDeUsuario = Session["nombreDeUsuario"].ToString();
-            categoriaPendiente.nombre = txtNuevaCategoria.Text;
-            categoriaPendiente.usuario = new Usuario();
-            categoriaPendiente.usuario.id = usuarioNegocio.obteneridPorSession(nombreDeUsuario);
-            categoriaPendiente.estado = true;
-            bool ok = categoriaPendienteNegocio.verificar(txtNuevaCategoria.Text);
-            bool ok2 = categoriaPendienteNegocio.verificar2(txtNuevaCategoria.Text);
-            if (ok == false && ok2 == false)
-            {
-                lblAgregarCategoriaError.Visible = false;
-                categoriaPendienteNegocio.agregar(categoriaPendiente);
-                lblAgregarCategoriaExito.Visible = true;
-                lblAgregarCategoria.Visible = false;
-                txtNuevaCategoria.Visible = false;
-                btnAgregarCategoria.Visible = false;
-
-            }
-            else
-            {
-                lblAgregarCategoriaExito.Visible = false;
-                lblAgregarCategoriaError.Visible = true;
-            }
-
-        }
-
-        protected void btnAgregarMarca_Click(object sender, EventArgs e)
-        {
-            string nombreDeUsuario = Session["nombreDeUsuario"].ToString();
-            marcaPendiente.nombre = txtNuevaMarca.Text;
-            marcaPendiente.usuario = new Usuario();
-            marcaPendiente.usuario.id = usuarioNegocio.obteneridPorSession(nombreDeUsuario);
-            marcaPendiente.estado = true;
-            bool ok = marcaPendienteNegocio.verificar(txtNuevaMarca.Text);
-            bool ok2 = marcaPendienteNegocio.verificar2(txtNuevaMarca.Text);
-            if (ok == false && ok2 == false)
-            {
-                lblAgregarMarcaError.Visible = false;
-                marcaPendienteNegocio.agregar(marcaPendiente);
-                lblAgregarMarcaExito.Visible = true;
-                lblAgregarMarca.Visible = false;
-                txtNuevaMarca.Visible = false;
-                btnAgregarMarca.Visible = false;
-
-            }
-            else
-            {
-                lblAgregarMarcaExito.Visible = false;
-                lblAgregarMarcaError.Visible = true;
-            }
-
-        }
+       
     }
-
-
 }
